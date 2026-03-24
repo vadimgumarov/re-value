@@ -1,0 +1,27 @@
+# RE Value - Real Estate Analytics
+
+> Real estate data input, analytics dashboard, and reporting platform.
+
+## Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Framework | Next.js 16 (App Router) |
+| Styling | Tailwind CSS v4 |
+| Language | TypeScript |
+| Fonts | Inter (body), JetBrains Mono (terminal) |
+| Design | Dark mode, data/terminal aesthetic, green/blue accents |
+
+## Stitch AI
+
+- **Project ID:** 13451786594263070360
+- **Screens:** 10 (mobile + desktop)
+- **Design theme:** Dark mode, Inter body, data-green (#22c55e), data-blue (#3b82f6)
+
+## Commands
+
+```bash
+npm run dev      # Development server
+npm run build    # Production build
+npm run lint     # ESLint
+```
