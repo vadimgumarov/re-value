@@ -1,8 +1,71 @@
+"use client";
+
+import { Suspense, useState, useMemo } from "react";
+import { useSearchParams } from "next/navigation";
+import dynamic from "next/dynamic";
 import AppLayout from "@/components/AppLayout";
 
-export default function Analytics() {
+const LithuaniaHeatmap = dynamic(() => import("@/components/maps/LithuaniaHeatmap"), {
+  ssr: false,
+  loading: () => <div className="bg-surface-container-lowest animate-pulse" style={{ height: "500px" }} />,
+});
+const DistrictMap = dynamic(() => import("@/components/maps/DistrictMap"), {
+  ssr: false,
+  loading: () => <div className="bg-surface-container-lowest animate-pulse" style={{ height: "500px" }} />,
+});
+
+const pricePerM2: Record<string, number> = {
+  Vilnius: 4200,
+  Kaunas: 2800,
+  "Klaipėda": 3100,
+};
+
+const allComparables = [
+  { address: "Didžioji g. 22", area: "82 m²", price: 435000, deviation: "+1,2%", deviationColor: "text-secondary", city: "Vilnius" },
+  { address: "Subačiaus g. 14", area: "75 m²", price: 412000, deviation: "-4,1%", deviationColor: "text-error", city: "Vilnius" },
+  { address: "Pylimo g. 8", area: "91 m²", price: 460000, deviation: "+7,2%", deviationColor: "text-secondary", city: "Vilnius" },
+  { address: "Vokiečių g. 3", area: "68 m²", price: 421000, deviation: "0,0%", deviationColor: "text-slate-400", city: "Vilnius" },
+  { address: "Laisvės al. 45", area: "85 m²", price: 238000, deviation: "+2,8%", deviationColor: "text-secondary", city: "Kaunas" },
+  { address: "Savanorių pr. 12", area: "72 m²", price: 198000, deviation: "-1,5%", deviationColor: "text-error", city: "Kaunas" },
+  { address: "Danės g. 5", area: "78 m²", price: 245000, deviation: "+3,4%", deviationColor: "text-secondary", city: "Klaipėda" },
+  { address: "Tiltų g. 9", area: "65 m²", price: 198000, deviation: "-2,1%", deviationColor: "text-error", city: "Klaipėda" },
+];
+
+function formatEur(n: number) {
+  return n.toLocaleString("lt-LT").replace(/,/g, " ") + " €";
+}
+
+function AnalyticsContent() {
+  const searchParams = useSearchParams();
+  const [mapExpanded, setMapExpanded] = useState(false);
+
+  const city = searchParams.get("city") || "Vilnius";
+  const areaStr = searchParams.get("area") || "75,5";
+  const areaNum = parseFloat(areaStr.replace(",", ".")) || 75.5;
+  const quarter = searchParams.get("quarter") || "";
+  const street = searchParams.get("street") || "";
+  const energyRating = searchParams.get("energyRating") || "";
+  const buildYear = searchParams.get("buildYear") || "";
+  const heatingSystem = searchParams.get("heatingSystem") || "";
+  const structuralCondition = searchParams.get("structuralCondition") || "";
+  const interiorFinish = searchParams.get("interiorFinish") || "";
+  const utilitySystems = searchParams.get("utilitySystems") || "";
+
+  const basePrice = pricePerM2[city] || 4200;
+  const baseValue = Math.round(areaNum * basePrice);
+  const lowValue = Math.round(baseValue * 0.97);
+  const highValue = Math.round(baseValue * 1.03);
+
+  // Confidence: base 85% + bonuses for filled fields
+  const filledFields = [city, quarter, street, energyRating, buildYear, heatingSystem, structuralCondition, interiorFinish, utilitySystems].filter(Boolean).length;
+  const confidence = Math.min(99, 85 + filledFields);
+
+  const comparables = useMemo(() => {
+    return allComparables.filter((c) => c.city === city);
+  }, [city]);
+
   return (
-    <AppLayout activeItem="input-terminal">
+    <AppLayout activeItem="valuation-engine">
       <div className="flex-1 overflow-y-auto bg-surface-container-low p-8 space-y-8">
         {/* TOP SECTION: Valuation Brackets */}
         <section className="grid grid-cols-12 gap-6">
@@ -13,9 +76,9 @@ export default function Analytics() {
               </span>
               <div className="flex items-baseline mt-2 space-x-4">
                 <h2 className="text-5xl font-bold tracking-tighter text-on-surface">
-                  412 400 €{" "}
+                  {formatEur(lowValue)}{" "}
                   <span className="text-2xl text-slate-600">&mdash;</span>{" "}
-                  438 900 €
+                  {formatEur(highValue)}
                 </h2>
                 <div className="flex items-center text-secondary bg-secondary-container/10 px-2 py-0.5 rounded text-[10px] font-bold">
                   <span className="material-symbols-outlined text-xs mr-1">
@@ -31,7 +94,7 @@ export default function Analytics() {
                   Bazinis įvertinimas
                 </span>
                 <div className="text-lg font-semibold text-primary">
-                  425 150 €
+                  {formatEur(baseValue)}
                 </div>
               </div>
               <div>
@@ -56,13 +119,13 @@ export default function Analytics() {
               Patikimumo balas
             </span>
             <div className="text-7xl font-black my-2 z-10">
-              94<span className="text-3xl">%</span>
+              {confidence}<span className="text-3xl">%</span>
             </div>
             <div className="w-full h-1 bg-on-primary-fixed/20 mt-2 z-10 overflow-hidden">
-              <div className="w-[94%] h-full bg-on-primary-fixed" />
+              <div className="h-full bg-on-primary-fixed transition-all" style={{ width: `${confidence}%` }} />
             </div>
             <p className="text-[10px] font-medium mt-4 z-10 text-center uppercase tracking-tighter">
-              Agreguota iš 12 aktyvių rinkos rodiklių
+              Agreguota iš {filledFields + 3} aktyvių rinkos rodiklių
             </p>
           </div>
         </section>
@@ -70,13 +133,13 @@ export default function Analytics() {
         {/* MIDDLE SECTION: Map & Analytics */}
         <section className="grid grid-cols-12 gap-6">
           {/* Map */}
-          <div className="col-span-12 xl:col-span-7 bg-surface-container h-[500px] relative overflow-hidden">
+          <div className={`col-span-12 ${mapExpanded ? "" : "xl:col-span-7"} bg-surface-container relative overflow-hidden transition-all duration-300 ${mapExpanded ? "h-[700px]" : "h-[500px]"}`}>
             <div className="absolute top-6 left-6 z-10">
               <span className="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase block mb-1">
                 Regioninė žvalgyba
               </span>
               <h3 className="text-xl font-bold tracking-tight">
-                VILNIAUS_METRO_RAJONAI
+                {city.toUpperCase()}_METRO_RAJONAI
               </h3>
             </div>
             <div className="absolute top-6 right-6 z-10 flex flex-col space-y-1">
@@ -99,17 +162,18 @@ export default function Analytics() {
                 </span>
               </div>
             </div>
-            {/* Abstract Map */}
-            <div className="w-full h-full bg-surface-container flex items-center justify-center">
-              <div className="w-full h-full bg-gradient-to-br from-surface-container via-surface-container-high/30 to-surface-container-low relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-4/5 h-4/5 grid grid-cols-6 grid-rows-6 opacity-60">
-                    <div className="col-start-3 row-start-2 w-3 h-3 bg-primary rounded-full animate-pulse shadow-[0_0_15px_#a0c9ff]" />
-                    <div className="col-start-5 row-start-4 w-2 h-2 bg-secondary rounded-full shadow-[0_0_10px_#6bde80]" />
-                    <div className="col-start-2 row-start-5 w-4 h-4 bg-primary-container rounded-full opacity-50" />
-                  </div>
-                </div>
-              </div>
+            {/* Lithuania Heatmap */}
+            <div className="w-full h-full">
+              <LithuaniaHeatmap
+                data={[
+                  { region: "Vilnius", value: 85, label: "4 200 \u20AC/m\u00B2" },
+                  { region: "Kaunas", value: 55, label: "2 800 \u20AC/m\u00B2" },
+                  { region: "Klaip\u0117da", value: 60, label: "3 100 \u20AC/m\u00B2" },
+                  { region: "\u0160iauliai", value: 30, label: "1 600 \u20AC/m\u00B2" },
+                  { region: "Panev\u0117\u017Eys", value: 25, label: "1 400 \u20AC/m\u00B2" },
+                ]}
+                selectedCity={city}
+              />
             </div>
             <div className="absolute bottom-0 left-0 right-0 p-6 glass-panel border-t border-white/5 flex justify-between items-center">
               <div className="flex space-x-8">
@@ -118,7 +182,7 @@ export default function Analytics() {
                     Karštasis taškas
                   </span>
                   <div className="text-sm font-bold">
-                    Senamiestis / Šnipiškės
+                    {quarter || "Senamiestis"} / {street || "Šnipiškės"}
                   </div>
                 </div>
                 <div>
@@ -130,14 +194,17 @@ export default function Analytics() {
                   </div>
                 </div>
               </div>
-              <button className="bg-surface-container-highest px-4 py-2 text-[10px] font-bold tracking-widest uppercase hover:bg-white/10 transition-colors">
-                Išplėsti vaizdą
+              <button
+                onClick={() => setMapExpanded((v) => !v)}
+                className="bg-surface-container-highest px-4 py-2 text-[10px] font-bold tracking-widest uppercase hover:bg-white/10 transition-colors"
+              >
+                {mapExpanded ? "Sutraukti vaizdą" : "Išplėsti vaizdą"}
               </button>
             </div>
           </div>
 
           {/* Table & Chart Area */}
-          <div className="col-span-12 xl:col-span-5 flex flex-col space-y-6">
+          <div className={`col-span-12 ${mapExpanded ? "" : "xl:col-span-5"} flex flex-col space-y-6`}>
             {/* CMA Table */}
             <div className="bg-surface-container p-6 flex-1 overflow-hidden flex flex-col">
               <div className="flex justify-between items-end mb-4">
@@ -146,7 +213,7 @@ export default function Analytics() {
                     Lyginamoji rinkos analizė
                   </span>
                   <h4 className="text-sm font-bold tracking-tight mt-1 uppercase">
-                    Aktyvūs etalonai (N=5)
+                    Aktyvūs etalonai (N={comparables.length})
                   </h4>
                 </div>
                 <span className="text-[10px] font-bold text-primary cursor-pointer hover:underline">
@@ -164,46 +231,14 @@ export default function Analytics() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-outline-variant/10">
-                    <tr className="hover:bg-surface-container-high transition-colors">
-                      <td className="py-3 font-medium text-on-surface">
-                        Didžioji g. 22
-                      </td>
-                      <td className="py-3 text-slate-400">82 m²</td>
-                      <td className="py-3 font-semibold">435 tūkst. €</td>
-                      <td className="py-3 text-right text-secondary font-bold">
-                        +1,2%
-                      </td>
-                    </tr>
-                    <tr className="hover:bg-surface-container-high transition-colors">
-                      <td className="py-3 font-medium text-on-surface">
-                        Subačiaus g. 14
-                      </td>
-                      <td className="py-3 text-slate-400">75 m²</td>
-                      <td className="py-3 font-semibold">412 tūkst. €</td>
-                      <td className="py-3 text-right text-error font-bold">
-                        -4,1%
-                      </td>
-                    </tr>
-                    <tr className="hover:bg-surface-container-high transition-colors">
-                      <td className="py-3 font-medium text-on-surface">
-                        Pylimo g. 8
-                      </td>
-                      <td className="py-3 text-slate-400">91 m²</td>
-                      <td className="py-3 font-semibold">460 tūkst. €</td>
-                      <td className="py-3 text-right text-secondary font-bold">
-                        +7,2%
-                      </td>
-                    </tr>
-                    <tr className="hover:bg-surface-container-high transition-colors">
-                      <td className="py-3 font-medium text-on-surface">
-                        Vokiečių g. 3
-                      </td>
-                      <td className="py-3 text-slate-400">68 m²</td>
-                      <td className="py-3 font-semibold">421 tūkst. €</td>
-                      <td className="py-3 text-right text-slate-400 font-bold">
-                        0,0%
-                      </td>
-                    </tr>
+                    {comparables.map((c) => (
+                      <tr key={c.address} className="hover:bg-surface-container-high transition-colors">
+                        <td className="py-3 font-medium text-on-surface">{c.address}</td>
+                        <td className="py-3 text-slate-400">{c.area}</td>
+                        <td className="py-3 font-semibold">{Math.round(c.price / 1000)} tūkst. €</td>
+                        <td className={`py-3 text-right font-bold ${c.deviationColor}`}>{c.deviation}</td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
@@ -269,32 +304,12 @@ export default function Analytics() {
                 </div>
               </div>
             </div>
-            {/* Scatter Plot */}
-            <div className="flex-1 min-h-[220px] border-l border-b border-outline-variant/30 relative mt-4 mx-4">
-              <div className="absolute inset-0 grid grid-cols-4 grid-rows-4 pointer-events-none opacity-10">
-                {Array.from({ length: 16 }).map((_, i) => (
-                  <div
-                    key={i}
-                    className="border-r border-t border-slate-400"
-                  />
-                ))}
-              </div>
-              <div className="absolute bottom-[20%] left-[15%] w-2 h-2 bg-slate-700 rounded-full opacity-60" />
-              <div className="absolute bottom-[45%] left-[30%] w-3 h-3 bg-slate-700 rounded-full opacity-60" />
-              <div className="absolute bottom-[30%] left-[55%] w-2.5 h-2.5 bg-slate-700 rounded-full opacity-60" />
-              <div className="absolute bottom-[65%] left-[45%] w-4 h-4 bg-slate-700 rounded-full opacity-40" />
-              <div className="absolute bottom-[75%] left-[75%] w-2 h-2 bg-slate-700 rounded-full opacity-60" />
-              <div className="absolute bottom-[55%] left-[85%] w-3 h-3 bg-slate-700 rounded-full opacity-60" />
-              {/* Subject */}
-              <div className="absolute bottom-[52%] left-[42%] w-5 h-5 bg-primary rounded-full shadow-[0_0_15px_#a0c9ff] flex items-center justify-center">
-                <div className="w-2 h-2 bg-on-primary rounded-full" />
-              </div>
-              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[8px] font-bold text-slate-500 uppercase tracking-widest">
-                Plotas (m²)
-              </div>
-              <div className="absolute -left-10 top-1/2 -rotate-90 text-[8px] font-bold text-slate-500 uppercase tracking-widest">
-                Pardavimo kaina (€)
-              </div>
+            {/* District Map */}
+            <div className="flex-1 min-h-[220px] mt-4 mx-4">
+              <DistrictMap
+                selectedDistrict="Senamiestis"
+                onDistrictClick={(d) => console.log(d)}
+              />
             </div>
           </div>
 
@@ -316,7 +331,7 @@ export default function Analytics() {
                 <div className="flex justify-between text-[10px] font-bold uppercase tracking-tight">
                   <span className="text-on-surface">Energinis efektyvumas</span>
                   <div className="space-x-4">
-                    <span className="text-primary">Objektas: A++</span>
+                    <span className="text-primary">Objektas: {searchParams.get("energyRating") || "A++"}</span>
                     <span className="text-slate-500">Vid.: B</span>
                   </div>
                 </div>
@@ -346,7 +361,7 @@ export default function Analytics() {
                     Struktūrinis vientisumas
                   </span>
                   <div className="space-x-4">
-                    <span className="text-primary">Objektas: OPTIMALUS</span>
+                    <span className="text-primary">Objektas: {searchParams.get("structuralCondition") || "OPTIMALUS"}</span>
                     <span className="text-slate-500">Vid.: GERAS</span>
                   </div>
                 </div>
@@ -444,5 +459,26 @@ export default function Analytics() {
         </section>
       </div>
     </AppLayout>
+  );
+}
+
+export default function Analytics() {
+  return (
+    <Suspense
+      fallback={
+        <AppLayout activeItem="valuation-engine">
+          <div className="flex-1 flex items-center justify-center bg-surface-container-low">
+            <div className="text-center">
+              <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+              <span className="text-xs font-bold text-slate-500 tracking-widest uppercase">
+                Skaičiuojama...
+              </span>
+            </div>
+          </div>
+        </AppLayout>
+      }
+    >
+      <AnalyticsContent />
+    </Suspense>
   );
 }
