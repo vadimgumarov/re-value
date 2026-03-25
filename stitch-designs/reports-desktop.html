@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reports - ESTIMATION_TERMINAL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121317;
+            color: #e3e2e7;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(52, 52, 57, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed-dim": "#c9c3dc",
+                        "inverse-on-surface": "#2f3034",
+                        "primary": "#a0c9ff",
+                        "surface-tint": "#a0c9ff",
+                        "on-background": "#e3e2e7",
+                        "inverse-primary": "#0061a6",
+                        "surface-container": "#1e1f23",
+                        "outline": "#8b919c",
+                        "tertiary-container": "#928ea5",
+                        "tertiary": "#c9c3dc",
+                        "surface-container-high": "#292a2e",
+                        "on-tertiary-fixed-variant": "#474458",
+                        "surface-dim": "#121317",
+                        "primary-fixed-dim": "#a0c9ff",
+                        "primary-container": "#4894e3",
+                        "primary-fixed": "#d2e4ff",
+                        "error-container": "#93000a",
+                        "surface-bright": "#38393d",
+                        "on-tertiary-container": "#2a273a",
+                        "surface-container-low": "#1a1b1f",
+                        "on-secondary-fixed": "#002108",
+                        "on-surface-variant": "#c1c7d3",
+                        "on-error-container": "#ffdad6",
+                        "background": "#121317",
+                        "on-surface": "#e3e2e7",
+                        "secondary-fixed-dim": "#6bde80",
+                        "surface-variant": "#343439",
+                        "outline-variant": "#414751",
+                        "on-error": "#690005",
+                        "on-primary-container": "#002b4e",
+                        "surface-container-highest": "#343439",
+                        "on-secondary": "#003913",
+                        "secondary": "#6bde80",
+                        "secondary-container": "#2fa54f",
+                        "on-secondary-container": "#003210",
+                        "on-tertiary": "#312e41",
+                        "tertiary-fixed": "#e5dff9",
+                        "on-primary-fixed": "#001c37",
+                        "error": "#ffb4ab",
+                        "surface": "#121317",
+                        "surface-container-lowest": "#0d0e12",
+                        "on-secondary-fixed-variant": "#00531f",
+                        "secondary-fixed": "#88fb99",
+                        "inverse-surface": "#e3e2e7",
+                        "on-tertiary-fixed": "#1c192b",
+                        "on-primary": "#00325a",
+                        "on-primary-fixed-variant": "#00497f"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="antialiased overflow-hidden">
+<!-- TopNavBar Implementation -->
+<nav class="w-full h-16 sticky top-0 z-50 bg-[#121317] flex items-center justify-between px-6 font-['Inter'] antialiased text-sm tracking-tight shadow-none border-b border-outline-variant/10">
+<div class="flex items-center gap-12">
+<span class="text-xl font-bold tracking-tighter text-slate-100 uppercase">ESTIMATION_TERMINAL</span>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-slate-400 font-medium hover:text-slate-100 transition-colors duration-200" href="#">Dashboard</a>
+<a class="text-slate-400 font-medium hover:text-slate-100 transition-colors duration-200" href="#">Analytics</a>
+<a class="text-[#a0c9ff] border-b-2 border-[#a0c9ff] pb-1 font-semibold transition-all" href="#">Reports</a>
+<a class="text-slate-400 font-medium hover:text-slate-100 transition-colors duration-200" href="#">Archive</a>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="User Analyst Profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALoQTsOz2d9i8KAUZy-Wy8LkM6ZZuEwWfvsP9FChN-u0tVQlmGQim6_bH0igq3xZlZG_qZ82ZqOzGNGn4g_R5jnL17Wac6DOHu-kQqijglquZ6iLxkuWTTIyJK8noZkZbillixv0-ZR_fLvkfJehvShJ65K9L8z38wKB_qALMa3rPWbW3ZZrVuIjPN7_V3yPEn6EgOxFPpipNBJw3pXt9DHhzJcXwHnHt--wUz229qAXCjx1jm9FuIS-rB1BBLSECmfdrMex4N9pCi"/>
+</div>
+</div>
+</nav>
+<div class="flex h-[calc(100vh-64px)]">
+<!-- SideNavBar Implementation -->
+<aside class="h-full w-64 bg-[#121317] border-r border-outline-variant/10 flex flex-col py-4 space-y-2 font-['Inter'] text-[10px] font-semibold tracking-widest uppercase">
+<div class="px-6 mb-8 mt-4">
+<div class="flex items-center gap-3 mb-1">
+<div class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(107,222,128,0.5)]"></div>
+<span class="text-on-surface text-xs font-bold tracking-tight uppercase">SOVEREIGN_INTEL</span>
+</div>
+<div class="text-on-surface-variant opacity-50 text-[9px]">V.2.4.0_STABLE</div>
+</div>
+<div class="px-3 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 bg-transparent hover:bg-[#1a1b1f] hover:text-slate-200 transition-all group" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="terminal">terminal</span>
+<span>Input Terminal</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#a0c9ff] bg-[#292a2e] border-r-2 border-[#a0c9ff] group" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="calculate">calculate</span>
+<span>Valuation Engine</span>
+</a>
+</div>
+<div class="mt-auto px-3 pb-4 space-y-1">
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed py-3 px-4 rounded-lg flex items-center justify-center gap-2 mb-4 hover:opacity-90 active:scale-95 transition-all text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                    NEW_ESTIMATE
+                </button>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-200 transition-all" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="menu_book">menu_book</span>
+<span>Documentation</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-200 transition-all" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="contact_support">contact_support</span>
+<span>Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto bg-surface-container-low p-8">
+<header class="mb-10 flex justify-between items-end">
+<div class="space-y-1">
+<div class="text-[10px] text-primary font-semibold tracking-widest uppercase">System / Engine / Diagnostics</div>
+<h1 class="text-4xl font-bold tracking-tight text-on-surface">VALUATION_REPORTS</h1>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-high px-4 py-2 rounded-lg flex items-center gap-2 border border-outline-variant/10">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none text-[10px] focus:ring-0 text-on-surface p-0 w-48 placeholder:text-outline-variant" placeholder="FILTER BY ID OR ADDRESS..." type="text"/>
+</div>
+<button class="bg-surface-container-highest px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-surface-bright transition-colors border border-outline-variant/20">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Global Filter</span>
+</button>
+</div>
+</header>
+<!-- Precision Grid Table -->
+<div class="bg-surface-container-high rounded-lg overflow-hidden border-t-2 border-primary/20">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-highest/50">
+<th class="px-6 py-4 text-[10px] font-bold tracking-widest text-on-surface-variant uppercase">Report ID</th>
+<th class="px-6 py-4 text-[10px] font-bold tracking-widest text-on-surface-variant uppercase">Asset Address</th>
+<th class="px-6 py-4 text-[10px] font-bold tracking-widest text-on-surface-variant uppercase">Valuation Date</th>
+<th class="px-6 py-4 text-[10px] font-bold tracking-widest text-on-surface-variant uppercase">Confidence</th>
+<th class="px-6 py-4 text-[10px] font-bold tracking-widest text-on-surface-variant uppercase">Status</th>
+<th class="px-6 py-4 text-[10px] font-bold tracking-widest text-on-surface-variant uppercase text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-bright/30 transition-colors group">
+<td class="px-6 py-5">
+<span class="font-mono text-xs text-primary">#RP-9821-X</span>
+</td>
+<td class="px-6 py-5">
+<div class="text-sm font-medium text-on-surface">Vilniaus g. 25, Vilnius, LT-01119</div>
+</td>
+<td class="px-6 py-5">
+<div class="text-xs text-on-surface-variant">2023.10.24 / 14:02</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-24 h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[94%]"></div>
+</div>
+<span class="text-[10px] font-bold text-secondary">94%</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-secondary-container/20 text-secondary uppercase tracking-tight">Verified</span>
+</td>
+<td class="px-6 py-5 text-right space-x-2">
+<button class="p-2 hover:text-primary transition-colors" title="Export PDF">
+<span class="material-symbols-outlined text-lg" data-icon="picture_as_pdf">picture_as_pdf</span>
+</button>
+<button class="p-2 hover:text-primary transition-colors" title="Export CSV">
+<span class="material-symbols-outlined text-lg" data-icon="csv">csv</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="bg-surface-container-low/20 hover:bg-surface-bright/30 transition-colors group">
+<td class="px-6 py-5">
+<span class="font-mono text-xs text-primary">#RP-9819-B</span>
+</td>
+<td class="px-6 py-5">
+<div class="text-sm font-medium text-on-surface">Konstitucijos pr. 21, Vilnius, LT-08105</div>
+</td>
+<td class="px-6 py-5">
+<div class="text-xs text-on-surface-variant">2023.10.22 / 09:45</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-24 h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[88%]"></div>
+</div>
+<span class="text-[10px] font-bold text-secondary">88%</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-secondary-container/20 text-secondary uppercase tracking-tight">Verified</span>
+</td>
+<td class="px-6 py-5 text-right space-x-2">
+<button class="p-2 hover:text-primary transition-colors" title="Export PDF">
+<span class="material-symbols-outlined text-lg" data-icon="picture_as_pdf">picture_as_pdf</span>
+</button>
+<button class="p-2 hover:text-primary transition-colors" title="Export CSV">
+<span class="material-symbols-outlined text-lg" data-icon="csv">csv</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-bright/30 transition-colors group">
+<td class="px-6 py-5">
+<span class="font-mono text-xs text-primary">#RP-9744-S</span>
+</td>
+<td class="px-6 py-5">
+<div class="text-sm font-medium text-on-surface">Islandijos g. 3, Vilnius, LT-01402</div>
+</td>
+<td class="px-6 py-5">
+<div class="text-xs text-on-surface-variant">2023.10.21 / 18:12</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-24 h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-error h-full w-[62%]"></div>
+</div>
+<span class="text-[10px] font-bold text-error">62%</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-tertiary-container/20 text-tertiary uppercase tracking-tight">Processing</span>
+</td>
+<td class="px-6 py-5 text-right space-x-2">
+<button class="p-2 opacity-30 cursor-not-allowed">
+<span class="material-symbols-outlined text-lg" data-icon="picture_as_pdf">picture_as_pdf</span>
+</button>
+<button class="p-2 opacity-30 cursor-not-allowed">
+<span class="material-symbols-outlined text-lg" data-icon="csv">csv</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="bg-surface-container-low/20 hover:bg-surface-bright/30 transition-colors group">
+<td class="px-6 py-5">
+<span class="font-mono text-xs text-primary">#RP-9701-Q</span>
+</td>
+<td class="px-6 py-5">
+<div class="text-sm font-medium text-on-surface">Jogailos g. 4, Vilnius, LT-01116</div>
+</td>
+<td class="px-6 py-5">
+<div class="text-xs text-on-surface-variant">2023.10.20 / 11:20</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-24 h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[91%]"></div>
+</div>
+<span class="text-[10px] font-bold text-secondary">91%</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-secondary-container/20 text-secondary uppercase tracking-tight">Verified</span>
+</td>
+<td class="px-6 py-5 text-right space-x-2">
+<button class="p-2 hover:text-primary transition-colors" title="Export PDF">
+<span class="material-symbols-outlined text-lg" data-icon="picture_as_pdf">picture_as_pdf</span>
+</button>
+<button class="p-2 hover:text-primary transition-colors" title="Export CSV">
+<span class="material-symbols-outlined text-lg" data-icon="csv">csv</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Dashboard Analytics Bottom Panel -->
+<div class="grid grid-cols-12 gap-6 mt-8">
+<div class="col-span-12 md:col-span-8 bg-surface-container p-6 rounded-lg flex flex-col justify-between h-48">
+<div>
+<div class="text-[10px] font-bold tracking-widest text-primary uppercase mb-4">Production Throughput</div>
+<div class="flex items-end gap-1 h-20">
+<div class="flex-1 bg-surface-container-high h-[40%] rounded-sm"></div>
+<div class="flex-1 bg-surface-container-high h-[60%] rounded-sm"></div>
+<div class="flex-1 bg-surface-container-high h-[30%] rounded-sm"></div>
+<div class="flex-1 bg-primary h-[85%] rounded-sm"></div>
+<div class="flex-1 bg-surface-container-high h-[55%] rounded-sm"></div>
+<div class="flex-1 bg-surface-container-high h-[70%] rounded-sm"></div>
+<div class="flex-1 bg-surface-container-high h-[45%] rounded-sm"></div>
+<div class="flex-1 bg-surface-container-high h-[65%] rounded-sm"></div>
+<div class="flex-1 bg-primary h-[95%] rounded-sm"></div>
+<div class="flex-1 bg-surface-container-high h-[50%] rounded-sm"></div>
+</div>
+</div>
+<div class="flex justify-between items-center text-[10px] text-on-surface-variant font-bold tracking-tighter">
+<span>LATEST_CYCLE_ANALYSIS</span>
+<span class="text-secondary">+12.4% EFFICIENCY</span>
+</div>
+</div>
+<div class="col-span-12 md:col-span-4 bg-surface-container-high p-6 rounded-lg flex flex-col justify-between border border-outline-variant/10">
+<div class="flex justify-between items-start">
+<div class="text-[10px] font-bold tracking-widest text-on-surface uppercase">System Status</div>
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<div class="text-3xl font-bold text-on-surface">NOMINAL</div>
+<div class="text-[10px] text-on-surface-variant">LATENCY: 42MS / CPU: 12%</div>
+</div>
+<div class="w-full h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-full"></div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Command Bar -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 glass-panel px-6 py-3 rounded-xl border border-outline-variant/20 flex items-center gap-6 shadow-2xl z-[100]">
+<div class="flex items-center gap-2 border-r border-outline-variant/20 pr-6">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="search">search</span>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Quick Command</span>
+<span class="bg-surface-container-high px-1.5 py-0.5 rounded text-[8px] border border-outline-variant/30 text-outline">CMD + K</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="file_download">file_download</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Bulk Export</span>
+</button>
+<button class="flex items-center gap-2 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="share">share</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Share Results</span>
+</button>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Estimator.lt | Analytics Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary": "#003913",
+                        "on-tertiary-container": "#2a273a",
+                        "error": "#ffb4ab",
+                        "on-error": "#690005",
+                        "surface-dim": "#121317",
+                        "surface-container-high": "#292a2e",
+                        "on-primary-fixed-variant": "#00497f",
+                        "secondary-container": "#2fa54f",
+                        "primary-fixed-dim": "#a0c9ff",
+                        "on-secondary-fixed-variant": "#00531f",
+                        "on-tertiary-fixed-variant": "#474458",
+                        "tertiary-fixed": "#e5dff9",
+                        "primary-fixed": "#d2e4ff",
+                        "surface": "#121317",
+                        "secondary-fixed": "#88fb99",
+                        "surface-container-low": "#1a1b1f",
+                        "outline": "#8b919c",
+                        "outline-variant": "#414751",
+                        "surface-bright": "#38393d",
+                        "inverse-on-surface": "#2f3034",
+                        "on-background": "#e3e2e7",
+                        "surface-variant": "#343439",
+                        "on-tertiary-fixed": "#1c192b",
+                        "surface-container-lowest": "#0d0e12",
+                        "inverse-primary": "#0061a6",
+                        "primary-container": "#4894e3",
+                        "surface-container-highest": "#343439",
+                        "tertiary": "#c9c3dc",
+                        "background": "#121317",
+                        "on-surface-variant": "#c1c7d3",
+                        "on-surface": "#e3e2e7",
+                        "on-tertiary": "#312e41",
+                        "surface-container": "#1e1f23",
+                        "tertiary-container": "#928ea5",
+                        "on-secondary-fixed": "#002108",
+                        "on-primary-container": "#002b4e",
+                        "primary": "#a0c9ff",
+                        "secondary": "#6bde80",
+                        "error-container": "#93000a",
+                        "inverse-surface": "#e3e2e7",
+                        "on-primary": "#00325a",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed": "#001c37",
+                        "on-secondary-container": "#003210",
+                        "tertiary-fixed-dim": "#c9c3dc",
+                        "secondary-fixed-dim": "#6bde80",
+                        "surface-tint": "#a0c9ff"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #121317;
+            color: #e3e2e7;
+            font-family: 'Inter', sans-serif;
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #121317; }
+        ::-webkit-scrollbar-thumb { background: #292a2e; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar from JSON -->
+<header class="bg-[#121317] dark:bg-[#121317] docked full-width top-0 z-50 sticky">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-none">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#a0c9ff]" data-icon="analytics">analytics</span>
+<span class="text-sm font-black tracking-[0.2em] text-[#a0c9ff] uppercase">ESTIMATOR.LT</span>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-[#909090] font-['Inter'] font-semibold tracking-tight hover:bg-[#292a2e] transition-colors px-3 py-1" href="#">Input</a>
+<a class="text-[#a0c9ff] border-b-2 border-[#a0c9ff] font-['Inter'] font-semibold tracking-tight hover:bg-[#292a2e] transition-colors px-3 py-1" href="#">Results</a>
+<a class="text-[#909090] font-['Inter'] font-semibold tracking-tight hover:bg-[#292a2e] transition-colors px-3 py-1" href="#">History</a>
+</nav>
+<div class="flex items-center">
+<button class="material-symbols-outlined text-[#a0c9ff] hover:bg-[#292a2e] p-2 transition-colors rounded" data-icon="settings">settings</button>
+</div>
+</div>
+</header>
+<main class="max-w-[1600px] mx-auto p-6 space-y-6 pb-32">
+<!-- Dashboard Header -->
+<div class="flex flex-col md:flex-row justify-between items-baseline gap-4 mb-8">
+<div class="space-y-1">
+<span class="text-xs font-semibold tracking-[0.1em] text-primary uppercase font-label">Valuation Report // ID-88294</span>
+<h1 class="text-4xl font-bold tracking-tight text-on-background font-headline">Gedimino pr. 12, Vilnius</h1>
+</div>
+<div class="flex gap-2">
+<div class="bg-surface-container-high px-4 py-2 rounded-lg">
+<p class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">Confidence Score</p>
+<p class="text-xl font-bold text-secondary">94.2%</p>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- 1. Price Estimation Bracket (Large Card) -->
+<section class="md:col-span-8 bg-surface-container-low p-6 rounded-lg relative overflow-hidden">
+<div class="flex justify-between items-start mb-12">
+<div>
+<h2 class="text-sm font-semibold text-on-surface-variant uppercase tracking-widest mb-1">Market Valuation</h2>
+<p class="text-3xl font-bold text-primary">€485,000 - €520,000</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">Bracket Status</p>
+<span class="inline-block px-2 py-1 bg-primary text-on-primary text-[10px] font-black rounded-sm uppercase mt-1">High-End Tier</span>
+</div>
+</div>
+<!-- Price Gradient Visualizer -->
+<div class="relative h-24 bg-surface-container-high rounded flex items-end overflow-hidden mb-4">
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-high via-primary/20 to-surface-container-high opacity-50"></div>
+<div class="w-full flex items-end justify-around px-4 pb-2 z-10">
+<div class="h-8 w-1 bg-outline-variant"></div>
+<div class="h-10 w-1 bg-outline-variant"></div>
+<div class="h-14 w-1 bg-outline-variant"></div>
+<div class="h-20 w-1 bg-primary"></div>
+<div class="h-16 w-1 bg-primary"></div>
+<div class="h-12 w-1 bg-outline-variant"></div>
+<div class="h-6 w-1 bg-outline-variant"></div>
+</div>
+</div>
+<div class="flex justify-between text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">
+<span>Low: €410k</span>
+<span class="text-primary">Target: €502k</span>
+<span>High: €590k</span>
+</div>
+</section>
+<!-- 4. Lithuania Regional Map -->
+<section class="md:col-span-4 bg-surface-container-low rounded-lg overflow-hidden flex flex-col">
+<div class="p-6 border-b border-outline-variant/10">
+<h2 class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Regional Value Intensity</h2>
+</div>
+<div class="flex-grow relative min-h-[300px] bg-surface-container-high">
+<img class="w-full h-full object-cover opacity-60 mix-blend-luminosity" data-alt="Abstract topographic map of Lithuania highlighting Vilnius" data-location="Vilnius, Lithuania" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAZ3KnrqmwPL0kEKVl45Xt4PM6f3LyFySUEwxjv40NIJioiPu-7Wwv6bfrM5f_hPtQS2y8xXGOnikbGtOhI0E4PwYVYz_cMN_nmZZU1x-BMTAsmTDiPF31DCv5_CO6TSTiOk-qp-Mugz7HfQbgvRR8dp9SsSZwsRIfhE8FSr1hhKiYfCtmAImyixrMYF6MlWj-572Nm6WVpU-CSbIbLfITbiANnYr02SW1wLFvDc4GGDQm8fiVnFM393cTBkTW_ooO-QZg43lmWzrK"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<!-- Marker Overlay Mockup -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<span class="material-symbols-outlined text-primary scale-150 drop-shadow-lg" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+<div class="p-4 grid grid-cols-2 gap-4 bg-surface-container-high/50">
+<div>
+<p class="text-[9px] text-on-surface-variant uppercase font-bold">Region</p>
+<p class="text-xs font-semibold">Vilnius Central</p>
+</div>
+<div>
+<p class="text-[9px] text-on-surface-variant uppercase font-bold">Heat Index</p>
+<p class="text-xs font-semibold text-secondary">Peak Demand</p>
+</div>
+</div>
+</section>
+<!-- 2. Market Trends -->
+<section class="md:col-span-6 bg-surface-container-low p-6 rounded-lg">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Historical Price Delta (24M)</h2>
+<span class="text-xs font-bold text-secondary">+12.4% YoY</span>
+</div>
+<div class="h-48 flex items-end gap-1">
+<!-- Bar Chart Mockup -->
+<div class="flex-grow bg-surface-container-high h-[40%] rounded-t-sm"></div>
+<div class="flex-grow bg-surface-container-high h-[45%] rounded-t-sm"></div>
+<div class="flex-grow bg-surface-container-high h-[42%] rounded-t-sm"></div>
+<div class="flex-grow bg-surface-container-high h-[50%] rounded-t-sm"></div>
+<div class="flex-grow bg-surface-container-high h-[60%] rounded-t-sm"></div>
+<div class="flex-grow bg-primary/40 h-[75%] rounded-t-sm"></div>
+<div class="flex-grow bg-primary/60 h-[85%] rounded-t-sm"></div>
+<div class="flex-grow bg-primary h-[100%] rounded-t-sm"></div>
+</div>
+<div class="mt-4 flex justify-between text-[9px] font-bold text-on-surface-variant uppercase">
+<span>Q1 2022</span>
+<span>Q4 2023</span>
+<span>Current</span>
+</div>
+</section>
+<!-- 3. Neighborhood Evaluation -->
+<section class="md:col-span-6 bg-surface-container-low p-6 rounded-lg">
+<h2 class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-6">Neighborhood Benchmarks</h2>
+<div class="space-y-4">
+<div class="flex justify-between items-center group cursor-default">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline-variant" data-icon="school">school</span>
+<span class="text-sm font-medium">Education Infrastructure</span>
+</div>
+<div class="flex gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-highest"></div>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline-variant" data-icon="directions_bus">directions_bus</span>
+<span class="text-sm font-medium">Transit Connectivity</span>
+</div>
+<div class="flex gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline-variant" data-icon="park">park</span>
+<span class="text-sm font-medium">Green Space Density</span>
+</div>
+<div class="flex gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-highest"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-highest"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-highest"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Similar Listings -->
+<section class="md:col-span-8 bg-surface-container-low rounded-lg overflow-hidden">
+<div class="p-6 border-b border-outline-variant/10 flex justify-between items-center">
+<h2 class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Comparative Market Analysis</h2>
+<span class="text-[10px] font-bold text-primary">7 Matches Found</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high/30">
+<th class="p-4 text-[10px] uppercase font-bold text-on-surface-variant">Listing Name</th>
+<th class="p-4 text-[10px] uppercase font-bold text-on-surface-variant">Price</th>
+<th class="p-4 text-[10px] uppercase font-bold text-on-surface-variant">Size</th>
+<th class="p-4 text-[10px] uppercase font-bold text-on-surface-variant">Distance</th>
+<th class="p-4 text-[10px] uppercase font-bold text-on-surface-variant text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/5">
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="p-4 text-sm font-medium">Vilniaus g. Penthouse</td>
+<td class="p-4 text-sm font-bold">€515,000</td>
+<td class="p-4 text-sm text-on-surface-variant">88 m²</td>
+<td class="p-4 text-sm text-on-surface-variant">0.4 km</td>
+<td class="p-4 text-right"><a class="text-primary text-[10px] font-black uppercase tracking-widest hover:underline" href="#">View Source</a></td>
+</tr>
+<tr class="bg-surface-container-high/20 hover:bg-surface-container-high transition-colors">
+<td class="p-4 text-sm font-medium">Old Town Modern Loft</td>
+<td class="p-4 text-sm font-bold">€490,000</td>
+<td class="p-4 text-sm text-on-surface-variant">72 m²</td>
+<td class="p-4 text-sm text-on-surface-variant">0.2 km</td>
+<td class="p-4 text-right"><a class="text-primary text-[10px] font-black uppercase tracking-widest hover:underline" href="#">View Source</a></td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="p-4 text-sm font-medium">Basanavičiaus Residence</td>
+<td class="p-4 text-sm font-bold">€545,000</td>
+<td class="p-4 text-sm text-on-surface-variant">95 m²</td>
+<td class="p-4 text-sm text-on-surface-variant">0.8 km</td>
+<td class="p-4 text-right"><a class="text-primary text-[10px] font-black uppercase tracking-widest hover:underline" href="#">View Source</a></td>
+</tr>
+<tr class="bg-surface-container-high/20 hover:bg-surface-container-high transition-colors">
+<td class="p-4 text-sm font-medium">Jakšto g. Heritage</td>
+<td class="p-4 text-sm font-bold">€475,000</td>
+<td class="p-4 text-sm text-on-surface-variant">68 m²</td>
+<td class="p-4 text-sm text-on-surface-variant">0.5 km</td>
+<td class="p-4 text-right"><a class="text-primary text-[10px] font-black uppercase tracking-widest hover:underline" href="#">View Source</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- 6. Future Growth & Development -->
+<section class="md:col-span-4 flex flex-col gap-6">
+<div class="bg-surface-container-low p-6 rounded-lg flex-grow">
+<h2 class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-6">Projection: 2025-2028</h2>
+<div class="space-y-6">
+<div class="relative pl-6 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5 before:bg-secondary">
+<p class="text-xs font-bold text-secondary uppercase mb-1">Growth Forecast: +18.5%</p>
+<p class="text-[11px] leading-relaxed text-on-surface-variant">Regional gentrification projects and new metro connectivity scheduled for 2026 expected to drive appreciation premium.</p>
+</div>
+<div class="bg-surface-container-high p-4 rounded border-l-2 border-primary">
+<p class="text-[9px] font-bold text-primary uppercase mb-2">Key Factor: Infrastructure</p>
+<p class="text-xs font-medium">Redevelopment of nearby Lukiškės hub identified as primary catalyst for residential demand surge.</p>
+</div>
+<div class="bg-surface-container-high p-4 rounded border-l-2 border-tertiary">
+<p class="text-[9px] font-bold text-tertiary uppercase mb-2">Macro-Economic Risk</p>
+<p class="text-xs font-medium">Low. High supply-demand gap in premium segment maintains price stability.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar from JSON -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 flex justify-center pb-safe mb-6 md:hidden">
+<div class="bg-[#343439]/80 backdrop-blur-lg rounded-lg mx-auto max-w-xs flex justify-around items-center w-full py-2 shadow-2xl">
+<div class="flex flex-col items-center justify-center text-[#c4c7c5] px-4 py-1 hover:text-white transition-colors duration-100 cursor-pointer">
+<span class="material-symbols-outlined mb-1" data-icon="edit_note">edit_note</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest">Input</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#a0c9ff] text-[#001c37] rounded-md px-4 py-1 scale-95 transition-transform duration-100 cursor-pointer">
+<span class="material-symbols-outlined mb-1" data-icon="query_stats">query_stats</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest">Results</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#c4c7c5] px-4 py-1 hover:text-white transition-colors duration-100 cursor-pointer">
+<span class="material-symbols-outlined mb-1" data-icon="history">history</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest">History</span>
+</div>
+</div>
+</nav>
+</body></html>

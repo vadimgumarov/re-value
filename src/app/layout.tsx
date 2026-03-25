@@ -4,7 +4,7 @@ import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -13,9 +13,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "RE Value - Real Estate Analytics",
+  title: "RE Value — VERTINIMO_TERMINALAS",
   description:
-    "Data-driven real estate analytics terminal for property valuation and market intelligence.",
+    "Duomenimis pagrįsta nekilnojamojo turto analitikos platforma vertinimui ir rinkos žvalgybai.",
 };
 
 export default function RootLayout({
@@ -25,10 +25,16 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="lt"
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased dark`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="min-h-full flex flex-col bg-background text-on-surface overflow-hidden">
         {children}
       </body>
     </html>

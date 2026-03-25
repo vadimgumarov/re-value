@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed-variant": "#00497f",
+              "error-container": "#93000a",
+              "tertiary-fixed-dim": "#c9c3dc",
+              "secondary-fixed-dim": "#6bde80",
+              "outline": "#8b919c",
+              "on-error-container": "#ffdad6",
+              "surface-container-lowest": "#0d0e12",
+              "surface-container-high": "#292a2e",
+              "background": "#121317",
+              "surface-variant": "#343439",
+              "on-surface": "#e3e2e7",
+              "tertiary-fixed": "#e5dff9",
+              "primary": "#a0c9ff",
+              "inverse-primary": "#0061a6",
+              "surface-container": "#1e1f23",
+              "surface": "#121317",
+              "on-primary-fixed": "#001c37",
+              "surface-container-highest": "#343439",
+              "on-tertiary-container": "#2a273a",
+              "surface-container-low": "#1a1b1f",
+              "surface-dim": "#121317",
+              "tertiary-container": "#928ea5",
+              "on-surface-variant": "#c1c7d3",
+              "on-primary-container": "#002b4e",
+              "surface-tint": "#a0c9ff",
+              "on-tertiary-fixed": "#1c192b",
+              "secondary-fixed": "#88fb99",
+              "error": "#ffb4ab",
+              "on-tertiary-fixed-variant": "#474458",
+              "on-secondary-container": "#003210",
+              "primary-container": "#4894e3",
+              "primary-fixed-dim": "#a0c9ff",
+              "on-tertiary": "#312e41",
+              "inverse-surface": "#e3e2e7",
+              "secondary": "#6bde80",
+              "outline-variant": "#414751",
+              "on-error": "#690005",
+              "on-background": "#e3e2e7",
+              "on-primary": "#00325a",
+              "primary-fixed": "#d2e4ff",
+              "on-secondary-fixed": "#002108",
+              "inverse-on-surface": "#2f3034",
+              "secondary-container": "#2fa54f",
+              "on-secondary": "#003913",
+              "tertiary": "#c9c3dc",
+              "on-secondary-fixed-variant": "#00531f",
+              "surface-bright": "#38393d"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #121317; color: #e3e2e7; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(52, 52, 57, 0.8); backdrop-filter: blur(20px); }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #414751; border-radius: 2px; }
+    </style>
+</head>
+<body class="flex min-h-screen selection:bg-primary selection:text-on-primary-fixed">
+<!-- SideNavBar Component -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#121317] flex flex-col py-4 z-40">
+<div class="px-6 mb-8">
+<div class="flex items-center space-x-3 mb-6">
+<div class="w-8 h-8 bg-gradient-to-br from-primary to-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed text-lg" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+<div>
+<h1 class="font-black text-[#a0c9ff] tracking-tighter text-lg leading-none uppercase">ESTIMATOR.LT</h1>
+<span class="text-[10px] text-slate-500 font-bold tracking-[0.2em] uppercase">Sovereign Intel</span>
+</div>
+</div>
+<div class="bg-[#1a1b1f] p-3 rounded-lg mb-6">
+<div class="flex items-center justify-between mb-1">
+<span class="text-[11px] font-semibold tracking-wider uppercase text-slate-400">ASSET_ID: 4092</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<div class="text-[10px] font-medium text-primary uppercase">Precision Mode</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1 px-3">
+<a class="flex items-center px-3 py-2 text-[11px] font-semibold tracking-wider uppercase bg-[#292a2e] text-[#a0c9ff] border-r-2 border-[#a0c9ff] transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3 text-lg" data-icon="edit_note">edit_note</span>
+                Input Terminal
+            </a>
+<a class="flex items-center px-3 py-2 text-[11px] font-semibold tracking-wider uppercase text-slate-500 hover:bg-[#1a1b1f] hover:text-slate-200 transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3 text-lg" data-icon="query_stats">query_stats</span>
+                Market Models
+            </a>
+<a class="flex items-center px-3 py-2 text-[11px] font-semibold tracking-wider uppercase text-slate-500 hover:bg-[#1a1b1f] hover:text-slate-200 transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3 text-lg" data-icon="calculate">calculate</span>
+                Valuation Engine
+            </a>
+<a class="flex items-center px-3 py-2 text-[11px] font-semibold tracking-wider uppercase text-slate-500 hover:bg-[#1a1b1f] hover:text-slate-200 transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3 text-lg" data-icon="analytics">analytics</span>
+                Sensitivity Analysis
+            </a>
+<a class="flex items-center px-3 py-2 text-[11px] font-semibold tracking-wider uppercase text-slate-500 hover:bg-[#1a1b1f] hover:text-slate-200 transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3 text-lg" data-icon="ios_share">ios_share</span>
+                Final Export
+            </a>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed py-3 rounded-lg text-[11px] font-black tracking-widest uppercase mb-6 hover:opacity-90 transition-opacity">
+                RUN SIMULATION
+            </button>
+<div class="space-y-3 pb-4">
+<a class="flex items-center text-[10px] font-semibold text-slate-500 hover:text-slate-200 uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined mr-3 text-base" data-icon="help_outline">help_outline</span>
+                    Support
+                </a>
+<a class="flex items-center text-[10px] font-semibold text-slate-500 hover:text-slate-200 uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined mr-3 text-base" data-icon="terminal">terminal</span>
+                    API Status
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 flex flex-col bg-surface-container-low min-h-screen">
+<!-- TopNavBar Integrated -->
+<header class="h-14 bg-[#121317] flex items-center justify-between px-8 w-full sticky top-0 z-30">
+<div class="flex items-center space-x-8">
+<div class="flex items-center space-x-2 bg-surface-container-high px-3 py-1.5 rounded border border-white/5">
+<span class="material-symbols-outlined text-slate-400 text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-[10px] text-on-surface uppercase font-medium placeholder:text-slate-600 w-48" placeholder="QUERY_SYSTEM..." type="text"/>
+</div>
+<nav class="flex space-x-6">
+<a class="text-[#a0c9ff] border-b-2 border-[#a0c9ff] pb-1 font-medium tracking-tight text-sm" href="#">Dashboard</a>
+<a class="text-slate-400 font-normal hover:text-white transition-colors tracking-tight text-sm" href="#">Analytics</a>
+<a class="text-slate-400 font-normal hover:text-white transition-colors tracking-tight text-sm" href="#">Reports</a>
+<a class="text-slate-400 font-normal hover:text-white transition-colors tracking-tight text-sm" href="#">Archive</a>
+</nav>
+</div>
+<div class="flex items-center space-x-4">
+<button class="text-slate-400 hover:text-white">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<button class="text-slate-400 hover:text-white">
+<span class="material-symbols-outlined text-xl">settings</span>
+</button>
+<div class="w-8 h-8 rounded bg-surface-container-highest flex items-center justify-center overflow-hidden border border-white/10">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="User professional avatar headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsPdrTbF6Oh0NFUOuWkri2pwLC1PByU8jlEQ-2Vp1qMcQiAPm9j6D9k8KhRhXU0lg57XtZMRgOxPYti0yDCQgFzQgOljqitHPK914W5mTFW5W_AnGjeRFjQu6gPdsjzoRVap1Sp8BKIYpDbWqxk2F1ldBNMRu1gEDQdHMraq5R88Faer1agt0twWgBFc7IxM2A9MxwP-D2H8A3GiwLo73zhj7iGZ1Pr8-upHysu70dwT9VHyHn_taXJpXSsChdkjKei1Tu9KRdPVbY"/>
+</div>
+</div>
+</header>
+<div class="p-8 space-y-8">
+<!-- TOP SECTION: Valuation Brackets -->
+<section class="grid grid-cols-12 gap-6">
+<div class="col-span-12 lg:col-span-8 bg-surface-container p-6 flex flex-col justify-between">
+<div>
+<span class="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">Estimated Market Value Bracket</span>
+<div class="flex items-baseline mt-2 space-x-4">
+<h2 class="text-5xl font-bold tracking-tighter text-on-surface">€412,400 <span class="text-2xl text-slate-600">—</span> €438,900</h2>
+<div class="flex items-center text-secondary bg-secondary-container/10 px-2 py-0.5 rounded text-[10px] font-bold">
+<span class="material-symbols-outlined text-xs mr-1">trending_up</span>
+                                +2.4% MoM
+                            </div>
+</div>
+</div>
+<div class="mt-8 flex space-x-12">
+<div>
+<span class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Base Estimate</span>
+<div class="text-lg font-semibold text-primary">€425,150</div>
+</div>
+<div>
+<span class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Market Fluidity</span>
+<div class="text-lg font-semibold">HIGH</div>
+</div>
+<div>
+<span class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Est. Time to Sell</span>
+<div class="text-lg font-semibold text-tertiary">14-22 DAYS</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 bg-primary text-on-primary-fixed p-6 flex flex-col justify-center items-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
+<span class="text-[10px] font-black tracking-[0.3em] uppercase opacity-60 z-10">Confidence Score</span>
+<div class="text-7xl font-black my-2 z-10">94<span class="text-3xl">%</span></div>
+<div class="w-full h-1 bg-on-primary-fixed/20 mt-2 z-10 overflow-hidden">
+<div class="w-[94%] h-full bg-on-primary-fixed"></div>
+</div>
+<p class="text-[10px] font-medium mt-4 z-10 text-center uppercase tracking-tighter">Aggregated from 12 active market drivers</p>
+</div>
+</section>
+<!-- MIDDLE SECTION: Map & Analytics -->
+<section class="grid grid-cols-12 gap-6">
+<!-- Map of Lithuania Area -->
+<div class="col-span-12 xl:col-span-7 bg-surface-container h-[500px] relative overflow-hidden">
+<div class="absolute top-6 left-6 z-10">
+<span class="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase block mb-1">Regional Intelligence</span>
+<h3 class="text-xl font-bold tracking-tight">VILNIUS_METRO_DISTRICTS</h3>
+</div>
+<div class="absolute top-6 right-6 z-10 flex flex-col space-y-1">
+<div class="flex items-center space-x-2">
+<span class="w-2 h-2 bg-[#a0c9ff]"></span>
+<span class="text-[9px] font-bold text-slate-400 uppercase">Premium Hubs</span>
+</div>
+<div class="flex items-center space-x-2">
+<span class="w-2 h-2 bg-[#4894e3]"></span>
+<span class="text-[9px] font-bold text-slate-400 uppercase">Growth Corridors</span>
+</div>
+<div class="flex items-center space-x-2">
+<span class="w-2 h-2 bg-[#292a2e]"></span>
+<span class="text-[9px] font-bold text-slate-400 uppercase">Stable Zones</span>
+</div>
+</div>
+<div class="w-full h-full bg-[#1e1f23] flex items-center justify-center">
+<!-- Abstract Map Representation -->
+<img alt="Regional Map" class="w-full h-full object-cover opacity-30 grayscale" data-alt="Abstract dark topo map of Lithuania regions" data-location="Lithuania" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAW3RKUPmdFTKeN5xzc36eG7JZxYujcuMM1tqQGb6n43RvH0-g4m9v-orZ41Gxjjei41QVoTQAJyb571iZYxOZ5t8lw78tLsrdpibbK_d8AohOgYn_2e2GZklgt1tJ2HQj1xZul3PJ7AiYGFKBm1VLpcWbIh6VTXazVbNDW39JbyQUDz_hkc6gvCmavijDq7UnHgV457AgFHRYdBRnM2ilLesEyN8Qw2qAJ10Balk9m5EXN_sN6w0KcKLo09S-BViy7Z32cAyUgnkxI"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-4/5 h-4/5 grid grid-cols-6 grid-rows-6 opacity-60">
+<!-- Decorative data points -->
+<div class="col-start-3 row-start-2 w-3 h-3 bg-primary rounded-full animate-pulse shadow-[0_0_15px_#a0c9ff]"></div>
+<div class="col-start-5 row-start-4 w-2 h-2 bg-secondary rounded-full shadow-[0_0_10px_#6bde80]"></div>
+<div class="col-start-2 row-start-5 w-4 h-4 bg-primary-container rounded-full opacity-50"></div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-6 glass-panel border-t border-white/5 flex justify-between items-center">
+<div class="flex space-x-8">
+<div>
+<span class="text-[9px] text-slate-400 uppercase font-bold tracking-widest">Hot Spot</span>
+<div class="text-sm font-bold">Old Town / Senamiestis</div>
+</div>
+<div>
+<span class="text-[9px] text-slate-400 uppercase font-bold tracking-widest">Yield %</span>
+<div class="text-sm font-bold text-secondary">5.2% avg</div>
+</div>
+</div>
+<button class="bg-surface-container-highest px-4 py-2 text-[10px] font-bold tracking-widest uppercase hover:bg-white/10 transition-colors">Expand View</button>
+</div>
+</div>
+<!-- Table & Chart Area -->
+<div class="col-span-12 xl:col-span-5 flex flex-col space-y-6">
+<!-- CMA Table -->
+<div class="bg-surface-container p-6 flex-1 overflow-hidden flex flex-col">
+<div class="flex justify-between items-end mb-4">
+<div>
+<span class="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">Comparative Market Analysis</span>
+<h4 class="text-sm font-bold tracking-tight mt-1 uppercase">Active Benchmarks (N=5)</h4>
+</div>
+<span class="text-[10px] font-bold text-primary cursor-pointer hover:underline">FILTER_XLS</span>
+</div>
+<div class="flex-1 custom-scrollbar overflow-y-auto">
+<table class="w-full text-left text-[11px]">
+<thead class="border-b border-outline-variant/30 text-slate-500 uppercase tracking-tighter">
+<tr>
+<th class="pb-2 font-semibold">Address</th>
+<th class="pb-2 font-semibold">Area</th>
+<th class="pb-2 font-semibold">Price</th>
+<th class="pb-2 font-semibold text-right">Dev.</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-surface-container-high transition-colors group">
+<td class="py-3 font-medium text-on-surface">Didžioji g. 22</td>
+<td class="py-3 text-slate-400">82 m²</td>
+<td class="py-3 font-semibold">€435k</td>
+<td class="py-3 text-right text-secondary font-bold">+1.2%</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="py-3 font-medium text-on-surface">Subačiaus g. 14</td>
+<td class="py-3 text-slate-400">75 m²</td>
+<td class="py-3 font-semibold">€412k</td>
+<td class="py-3 text-right text-error font-bold">-4.1%</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="py-3 font-medium text-on-surface">Pylimo g. 8</td>
+<td class="py-3 text-slate-400">91 m²</td>
+<td class="py-3 font-semibold">€460k</td>
+<td class="py-3 text-right text-secondary font-bold">+7.2%</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="py-3 font-medium text-on-surface">Vokiečių g. 3</td>
+<td class="py-3 text-slate-400">68 m²</td>
+<td class="py-3 font-semibold">€421k</td>
+<td class="py-3 text-right text-slate-400 font-bold">0.0%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Historical Chart Placeholder -->
+<div class="bg-surface-container p-6 h-48 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<span class="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">Historical Price Delta (5Y)</span>
+<span class="text-[10px] font-bold text-slate-300">CAGR: +8.4%</span>
+</div>
+<div class="flex-1 flex items-end space-x-1">
+<div class="bg-surface-container-highest flex-1 h-[40%] rounded-t-sm hover:bg-primary transition-all cursor-crosshair"></div>
+<div class="bg-surface-container-highest flex-1 h-[55%] rounded-t-sm hover:bg-primary transition-all cursor-crosshair"></div>
+<div class="bg-surface-container-highest flex-1 h-[48%] rounded-t-sm hover:bg-primary transition-all cursor-crosshair"></div>
+<div class="bg-surface-container-highest flex-1 h-[62%] rounded-t-sm hover:bg-primary transition-all cursor-crosshair"></div>
+<div class="bg-surface-container-highest flex-1 h-[75%] rounded-t-sm hover:bg-primary transition-all cursor-crosshair"></div>
+<div class="bg-surface-container-highest flex-1 h-[82%] rounded-t-sm hover:bg-primary transition-all cursor-crosshair"></div>
+<div class="bg-primary flex-1 h-[95%] rounded-t-sm"></div>
+</div>
+<div class="flex justify-between text-[8px] font-bold text-slate-600 mt-2 tracking-widest uppercase">
+<span>2019</span>
+<span>2020</span>
+<span>2021</span>
+<span>2022</span>
+<span>2023</span>
+<span>2024</span>
+<span class="text-primary">FORECAST</span>
+</div>
+</div>
+</div>
+</section>
+<!-- NEW SECTION: Advanced Market Comparisons -->
+<section class="grid grid-cols-12 gap-6">
+<div class="col-span-12 xl:col-span-6 bg-surface-container p-6 flex flex-col">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">Advanced Market Correlation</span>
+<h4 class="text-sm font-bold tracking-tight mt-1 uppercase">Price vs. Floor Area Analysis</h4>
+</div>
+<div class="flex items-center space-x-3">
+<div class="flex items-center space-x-1">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-[8px] font-bold text-slate-500 uppercase">Subject</span>
+</div>
+<div class="flex items-center space-x-1">
+<span class="w-2 h-2 rounded-full bg-slate-700"></span>
+<span class="text-[8px] font-bold text-slate-500 uppercase">Neighborhood</span>
+</div>
+</div>
+</div>
+<!-- Scatter Plot Visual Simulation -->
+<div class="flex-1 min-h-[220px] border-l border-b border-outline-variant/30 relative mt-4 mx-4">
+<!-- Grid Lines -->
+<div class="absolute inset-0 grid grid-cols-4 grid-rows-4 pointer-events-none opacity-10">
+<div class="border-r border-t border-slate-400"></div><div class="border-r border-t border-slate-400"></div><div class="border-r border-t border-slate-400"></div><div class="border-t border-slate-400"></div>
+<div class="border-r border-t border-slate-400"></div><div class="border-r border-t border-slate-400"></div><div class="border-r border-t border-slate-400"></div><div class="border-t border-slate-400"></div>
+<div class="border-r border-t border-slate-400"></div><div class="border-r border-t border-slate-400"></div><div class="border-r border-t border-slate-400"></div><div class="border-t border-slate-400"></div>
+<div class="border-r border-t border-slate-400"></div><div class="border-r border-t border-slate-400"></div><div class="border-r border-t border-slate-400"></div><div class="border-t border-slate-400"></div>
+</div>
+<!-- Data Points -->
+<div class="absolute bottom-[20%] left-[15%] w-2 h-2 bg-slate-700 rounded-full opacity-60"></div>
+<div class="absolute bottom-[45%] left-[30%] w-3 h-3 bg-slate-700 rounded-full opacity-60"></div>
+<div class="absolute bottom-[30%] left-[55%] w-2.5 h-2.5 bg-slate-700 rounded-full opacity-60"></div>
+<div class="absolute bottom-[65%] left-[45%] w-4 h-4 bg-slate-700 rounded-full opacity-40"></div>
+<div class="absolute bottom-[75%] left-[75%] w-2 h-2 bg-slate-700 rounded-full opacity-60"></div>
+<div class="absolute bottom-[55%] left-[85%] w-3 h-3 bg-slate-700 rounded-full opacity-60"></div>
+<!-- SUBJECT PROPERTY POINT -->
+<div class="absolute bottom-[52%] left-[42%] w-5 h-5 bg-primary rounded-full shadow-[0_0_15px_#a0c9ff] flex items-center justify-center">
+<div class="w-2 h-2 bg-on-primary rounded-full"></div>
+</div>
+<!-- Labels -->
+<div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[8px] font-bold text-slate-500 uppercase tracking-widest">Floor Area (m²)</div>
+<div class="absolute -left-10 top-1/2 -rotate-90 text-[8px] font-bold text-slate-500 uppercase tracking-widest">Sale Price (€)</div>
+</div>
+</div>
+<div class="col-span-12 xl:col-span-6 bg-surface-container p-6 flex flex-col">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">Structural Comparison</span>
+<h4 class="text-sm font-bold tracking-tight mt-1 uppercase">Engineering Specs vs. Regional Avg</h4>
+</div>
+</div>
+<div class="space-y-6 flex-1 flex flex-col justify-center">
+<!-- Spec 1 -->
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-bold uppercase tracking-tight">
+<span class="text-on-surface">Energy Efficiency</span>
+<div class="space-x-4">
+<span class="text-primary">Subject: A++</span>
+<span class="text-slate-500">Avg: B</span>
+</div>
+</div>
+<div class="relative h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-slate-600 w-[60%]"></div>
+<div class="absolute top-0 left-0 h-full bg-primary w-[95%] shadow-[0_0_8px_#a0c9ff]"></div>
+</div>
+</div>
+<!-- Spec 2 -->
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-bold uppercase tracking-tight">
+<span class="text-on-surface">Build Quality</span>
+<div class="space-x-4">
+<span class="text-primary">Subject: 9.4/10</span>
+<span class="text-slate-500">Avg: 7.2/10</span>
+</div>
+</div>
+<div class="relative h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-slate-600 w-[72%]"></div>
+<div class="absolute top-0 left-0 h-full bg-primary w-[94%] shadow-[0_0_8px_#a0c9ff]"></div>
+</div>
+</div>
+<!-- Spec 3 -->
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-bold uppercase tracking-tight">
+<span class="text-on-surface">Structural Integrity</span>
+<div class="space-x-4">
+<span class="text-primary">Subject: OPTIMAL</span>
+<span class="text-slate-500">Avg: GOOD</span>
+</div>
+</div>
+<div class="relative h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-slate-600 w-[78%]"></div>
+<div class="absolute top-0 left-0 h-full bg-primary w-[98%] shadow-[0_0_8px_#a0c9ff]"></div>
+</div>
+</div>
+</div>
+<p class="text-[9px] text-slate-500 font-medium italic mt-4 uppercase">Spec data aggregated from municipal construction permits and certified auditor reports.</p>
+</div>
+</section>
+<!-- BOTTOM SECTION: Benchmarks & Risk -->
+<section class="grid grid-cols-12 gap-6">
+<!-- Forecast Card -->
+<div class="col-span-12 md:col-span-4 bg-surface-container p-6 border-l-4 border-primary">
+<span class="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">12-Month Growth Forecast</span>
+<div class="flex items-center mt-3">
+<div class="text-4xl font-black text-primary tracking-tighter">+12.4%</div>
+<div class="ml-4 p-2 bg-primary/10 rounded">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+</div>
+</div>
+<p class="text-[11px] text-slate-400 mt-4 leading-relaxed">Driven by low housing inventory and continued institutional capital inflow in high-density sectors.</p>
+</div>
+<!-- Neighborhood Benchmarks -->
+<div class="col-span-12 md:col-span-4 bg-surface-container p-6 border-l-4 border-tertiary">
+<span class="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">Neighborhood Index</span>
+<div class="mt-4 space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-[11px] font-semibold text-on-surface uppercase tracking-tight">Walkability</span>
+<span class="text-[11px] font-bold text-tertiary">98/100</span>
+</div>
+<div class="w-full h-1 bg-surface-container-high rounded-full overflow-hidden">
+<div class="w-[98%] h-full bg-tertiary"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-[11px] font-semibold text-on-surface uppercase tracking-tight">Safety Grade</span>
+<span class="text-[11px] font-bold text-tertiary">A+</span>
+</div>
+<div class="w-full h-1 bg-surface-container-high rounded-full overflow-hidden">
+<div class="w-[92%] h-full bg-tertiary"></div>
+</div>
+</div>
+</div>
+<!-- Macro Risk Card -->
+<div class="col-span-12 md:col-span-4 bg-surface-container p-6 border-l-4 border-error">
+<span class="text-[10px] font-bold tracking-[0.2em] text-slate-500 uppercase">Macro-Economic Risks</span>
+<div class="mt-4 flex space-x-2">
+<span class="px-2 py-1 bg-error-container/20 text-error text-[9px] font-black tracking-widest uppercase rounded">Interest Rates</span>
+<span class="px-2 py-1 bg-error-container/20 text-error text-[9px] font-black tracking-widest uppercase rounded">Geopolitical</span>
+</div>
+<div class="mt-6 flex items-center justify-between">
+<div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Aggregate Volatility</div>
+<div class="text-xl font-bold text-error">MED_HIGH</div>
+</div>
+<div class="w-full h-1 bg-surface-container-high mt-2 rounded-full overflow-hidden">
+<div class="w-[65%] h-full bg-error"></div>
+</div>
+</div>
+</section>
+</div>
+<!-- Floating Command Bar (Glassmorphism) -->
+<div class="fixed bottom-8 left-1/2 -translate-x-1/2 transform glass-panel border border-white/10 rounded-xl px-6 py-3 flex items-center space-x-6 z-50">
+<button class="flex items-center space-x-2 text-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">file_download</span>
+<span class="text-[10px] font-bold tracking-widest uppercase">Export PDF</span>
+</button>
+<div class="h-4 w-px bg-white/10"></div>
+<button class="flex items-center space-x-2 text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">share</span>
+<span class="text-[10px] font-bold tracking-widest uppercase">Share Portal</span>
+</button>
+<div class="h-4 w-px bg-white/10"></div>
+<button class="flex items-center space-x-2 text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">refresh</span>
+<span class="text-[10px] font-bold tracking-widest uppercase">Sync Data</span>
+</button>
+</div>
+</main>
+</body></html>

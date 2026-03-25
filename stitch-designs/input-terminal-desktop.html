@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ESTIMATOR.LT | Data Input Terminal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed-variant": "#00497f",
+              "error-container": "#93000a",
+              "tertiary-fixed-dim": "#c9c3dc",
+              "secondary-fixed-dim": "#6bde80",
+              "outline": "#8b919c",
+              "on-error-container": "#ffdad6",
+              "surface-container-lowest": "#0d0e12",
+              "surface-container-high": "#292a2e",
+              "background": "#121317",
+              "surface-variant": "#343439",
+              "on-surface": "#e3e2e7",
+              "tertiary-fixed": "#e5dff9",
+              "primary": "#a0c9ff",
+              "inverse-primary": "#0061a6",
+              "surface-container": "#1e1f23",
+              "surface": "#121317",
+              "on-primary-fixed": "#001c37",
+              "surface-container-highest": "#343439",
+              "on-tertiary-container": "#2a273a",
+              "surface-container-low": "#1a1b1f",
+              "surface-dim": "#121317",
+              "tertiary-container": "#928ea5",
+              "on-surface-variant": "#c1c7d3",
+              "on-primary-container": "#002b4e",
+              "surface-tint": "#a0c9ff",
+              "on-tertiary-fixed": "#1c192b",
+              "secondary-fixed": "#88fb99",
+              "error": "#ffb4ab",
+              "on-tertiary-fixed-variant": "#474458",
+              "on-secondary-container": "#003210",
+              "primary-container": "#4894e3",
+              "primary-fixed-dim": "#a0c9ff",
+              "on-tertiary": "#312e41",
+              "inverse-surface": "#e3e2e7",
+              "secondary": "#6bde80",
+              "outline-variant": "#414751",
+              "on-error": "#690005",
+              "on-background": "#e3e2e7",
+              "on-primary": "#00325a",
+              "primary-fixed": "#d2e4ff",
+              "on-secondary-fixed": "#002108",
+              "inverse-on-surface": "#2f3034",
+              "secondary-container": "#2fa54f",
+              "on-secondary": "#003913",
+              "tertiary": "#c9c3dc",
+              "on-secondary-fixed-variant": "#00531f",
+              "surface-bright": "#38393d"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #121317; color: #e3e2e7; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #121317; }
+        ::-webkit-scrollbar-thumb { background: #343439; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-surface overflow-hidden">
+<!-- TopNavBar Implementation -->
+<header class="flex items-center justify-between px-6 w-full sticky top-0 z-50 w-full h-14 bg-[#121317] dark:bg-[#121317] border-none">
+<div class="flex items-center gap-8">
+<span class="text-lg font-bold tracking-tighter text-[#a0c9ff] uppercase">VALUATION_TERMINAL</span>
+<nav class="hidden md:flex space-x-6">
+<a class="text-[#a0c9ff] border-b-2 border-[#a0c9ff] pb-1 font-['Inter'] font-medium tracking-tight text-sm cursor-pointer active:opacity-80" href="#">Dashboard</a>
+<a class="text-slate-400 font-normal font-['Inter'] tracking-tight text-sm hover:text-white transition-colors cursor-pointer active:opacity-80" href="#">Analytics</a>
+<a class="text-slate-400 font-normal font-['Inter'] tracking-tight text-sm hover:text-white transition-colors cursor-pointer active:opacity-80" href="#">Reports</a>
+<a class="text-slate-400 font-normal font-['Inter'] tracking-tight text-sm hover:text-white transition-colors cursor-pointer active:opacity-80" href="#">Archive</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-400 hover:text-white transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<button class="text-slate-400 hover:text-white transition-colors"><span class="material-symbols-outlined">settings</span></button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Close up professional male headshot portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANtinRFX3peoN1qErjejV7bJYSd-ty0MU9kD9c1tHMhYgy5Zi-y46ATmP19WCvxuNBgngRlfn1mICpwdpTTDbrIUlU9zW6v6yhM9qHGrRRNPSKqjBPWwW2CVp9uqPTjhMAEp1eKBdhhsgNSqRJs3I4s9ydYcVjYuuPvNk5uA-82CMHXe4PPkPiYXmZpLqkHYM9XPue_OTvBuKlOgyu3WGDMPEoXlzrWqhiwyUGRemdEdUuRcz4lxS562Ip7WQoo09_m8VIt_EfdpbW"/>
+</div>
+</div>
+</header>
+<div class="flex h-[calc(100vh-3.5rem)]">
+<!-- SideNavBar Implementation -->
+<aside class="flex flex-col h-full py-4 space-y-2 bg-[#121317] dark:bg-[#121317] w-64 border-none z-40">
+<div class="px-6 mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed">token</span>
+</div>
+<div>
+<div class="font-black text-[#a0c9ff] text-sm">ASSET_ID: 4092</div>
+<div class="text-[10px] text-slate-500 font-semibold tracking-wider uppercase">Precision Mode</div>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<a class="flex items-center gap-3 px-3 py-3 bg-[#292a2e] text-[#a0c9ff] border-r-2 border-[#a0c9ff] font-['Inter'] text-[11px] font-semibold tracking-wider uppercase transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-lg">edit_note</span>
+<span>Input Terminal</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-slate-500 hover:bg-[#292a2e] hover:text-slate-200 font-['Inter'] text-[11px] font-semibold tracking-wider uppercase transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-lg">query_stats</span>
+<span>Market Models</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-slate-500 hover:bg-[#292a2e] hover:text-slate-200 font-['Inter'] text-[11px] font-semibold tracking-wider uppercase transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-lg">calculate</span>
+<span>Valuation Engine</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-slate-500 hover:bg-[#292a2e] hover:text-slate-200 font-['Inter'] text-[11px] font-semibold tracking-wider uppercase transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-lg">analytics</span>
+<span>Sensitivity Analysis</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-slate-500 hover:bg-[#292a2e] hover:text-slate-200 font-['Inter'] text-[11px] font-semibold tracking-wider uppercase transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-lg">ios_share</span>
+<span>Final Export</span>
+</a>
+</nav>
+<div class="px-6 py-4">
+<button class="w-full py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed font-bold text-xs tracking-widest rounded-lg hover:opacity-90 transition-opacity">
+                    RUN SIMULATION
+                </button>
+</div>
+<div class="px-3 pb-4 border-t border-white/5 pt-4">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-slate-200 transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">help_outline</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase">Support</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-slate-200 transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">terminal</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase">API Status</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex overflow-hidden">
+<!-- Input Form Section -->
+<section class="flex-1 overflow-y-auto bg-surface-container-low p-8 custom-scrollbar">
+<div class="max-w-4xl mx-auto space-y-12">
+<header class="flex justify-between items-end">
+<div>
+<span class="text-label-sm font-semibold tracking-[0.2em] text-primary uppercase block mb-2">System Config / Input</span>
+<h1 class="text-4xl font-bold tracking-tight text-on-surface">Estimator Engine <span class="text-outline">v2.4.0</span></h1>
+</div>
+<div class="text-right">
+<span class="text-[10px] font-mono text-outline block">STATION_ID: ALPHA_01</span>
+<span class="text-[10px] font-mono text-outline block">COORD: 54.6872° N, 25.2797° E</span>
+</div>
+</header>
+<!-- 01. GEOGRAPHIC CONTEXT -->
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<span class="text-2xl font-bold text-surface-container-highest tracking-tighter">01</span>
+<h2 class="text-lg font-semibold uppercase tracking-widest border-l-2 border-primary pl-4">Geographic Context</h2>
+</div>
+<div class="grid grid-cols-12 gap-4">
+<div class="col-span-4 space-y-2">
+<label class="text-[10px] font-bold text-outline uppercase tracking-wider">City / Region</label>
+<select class="w-full bg-surface-container-highest border-none text-sm text-on-surface px-4 py-3 focus:ring-0 focus:border-b-2 focus:border-primary transition-all rounded">
+<option>Vilnius</option>
+<option>Kaunas</option>
+<option>Klaipėda</option>
+</select>
+</div>
+<div class="col-span-4 space-y-2">
+<label class="text-[10px] font-bold text-outline uppercase tracking-wider">Neighborhood</label>
+<input class="w-full bg-surface-container-highest border-none text-sm text-on-surface px-4 py-3 focus:ring-0 focus:border-b-2 focus:border-primary transition-all rounded" placeholder="e.g. Senamiestis" type="text"/>
+</div>
+<div class="col-span-4 space-y-2">
+<label class="text-[10px] font-bold text-outline uppercase tracking-wider">Street Address</label>
+<input class="w-full bg-surface-container-highest border-none text-sm text-on-surface px-4 py-3 focus:ring-0 focus:border-b-2 focus:border-primary transition-all rounded" placeholder="Enter precise location" type="text"/>
+</div>
+</div>
+</div>
+<!-- 02. PHYSICAL SPECIFICATIONS -->
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<span class="text-2xl font-bold text-surface-container-highest tracking-tighter">02</span>
+<h2 class="text-lg font-semibold uppercase tracking-widest border-l-2 border-primary pl-4">Physical Specifications</h2>
+</div>
+<div class="grid grid-cols-12 gap-4">
+<div class="col-span-3 space-y-2">
+<label class="text-[10px] font-bold text-outline uppercase tracking-wider">Asset Type</label>
+<select class="w-full bg-surface-container-highest border-none text-sm text-on-surface px-4 py-3 focus:ring-0 focus:border-b-2 focus:border-primary transition-all rounded">
+<option>Residential Apartment</option>
+<option>Commercial Unit</option>
+<option>Industrial Space</option>
+</select>
+</div>
+<div class="col-span-3 space-y-2">
+<label class="text-[10px] font-bold text-outline uppercase tracking-wider">Floor Area (m²)</label>
+<input class="w-full bg-surface-container-highest border-none text-sm text-on-surface px-4 py-3 focus:ring-0 focus:border-b-2 focus:border-primary transition-all rounded" type="number" value="75.5"/>
+</div>
+<div class="col-span-3 space-y-2">
+<label class="text-[10px] font-bold text-outline uppercase tracking-wider">Build Year</label>
+<input class="w-full bg-surface-container-highest border-none text-sm text-on-surface px-4 py-3 focus:ring-0 focus:border-b-2 focus:border-primary transition-all rounded" type="number" value="2022"/>
+</div>
+<div class="col-span-3 space-y-2">
+<label class="text-[10px] font-bold text-outline uppercase tracking-wider">Energy Rating</label>
+<div class="flex gap-1">
+<button class="flex-1 py-3 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded">A++</button>
+<button class="flex-1 py-3 bg-surface-container-highest text-outline text-[10px] font-bold rounded">A+</button>
+<button class="flex-1 py-3 bg-surface-container-highest text-outline text-[10px] font-bold rounded">B</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 03. ENGINEERING DETAILS -->
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<span class="text-2xl font-bold text-surface-container-highest tracking-tighter">03</span>
+<h2 class="text-lg font-semibold uppercase tracking-widest border-l-2 border-primary pl-4">Engineering Details</h2>
+</div>
+<div class="grid grid-cols-12 gap-6">
+<div class="col-span-6 p-6 bg-surface-container-high rounded-xl space-y-4">
+<h3 class="text-[11px] font-black text-primary uppercase tracking-[0.2em]">Heating System Analysis</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex items-center gap-3 p-3 bg-surface-container-highest rounded border-l-2 border-primary">
+<span class="material-symbols-outlined text-primary">heat_pump</span>
+<div class="text-[10px] font-bold">Aerothermal</div>
+</div>
+<div class="flex items-center gap-3 p-3 bg-surface-container-low rounded opacity-40">
+<span class="material-symbols-outlined">gas_meter</span>
+<div class="text-[10px] font-bold">Central Gas</div>
+</div>
+</div>
+<div class="pt-2">
+<label class="text-[10px] font-bold text-outline uppercase block mb-2">System Efficiency (%)</label>
+<div class="h-1.5 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[92%]"></div>
+</div>
+<div class="flex justify-between mt-1">
+<span class="text-[9px] font-mono text-outline">NOMINAL: 85%</span>
+<span class="text-[9px] font-mono text-secondary">ACTUAL: 92%</span>
+</div>
+</div>
+</div>
+<div class="col-span-6 p-6 bg-surface-container-high rounded-xl space-y-4">
+<h3 class="text-[11px] font-black text-primary uppercase tracking-[0.2em]">Condition &amp; Wear</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-xs font-medium">Structural Integrity</span>
+<span class="text-[10px] font-mono bg-tertiary-container text-on-tertiary-container px-2 py-0.5 rounded">OPTIMAL</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs font-medium">Interior Finish</span>
+<span class="text-[10px] font-mono bg-primary-container text-on-primary-container px-2 py-0.5 rounded">PREMIUM</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs font-medium">Utility Systems</span>
+<span class="text-[10px] font-mono bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded">NEW</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Generate Button -->
+<div class="pt-8 border-t border-white/5">
+<button class="w-full h-20 bg-gradient-to-br from-primary to-primary-container text-on-primary-fixed rounded-xl flex flex-col items-center justify-center group relative overflow-hidden">
+<div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="text-sm font-black tracking-[0.4em] uppercase">Generate Analysis</span>
+<span class="text-[10px] opacity-70 mt-1 font-mono tracking-widest">ESTIMATED COMPUTE TIME: 4.2s</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Right Panel: Project History / Recent Activity -->
+<aside class="w-80 bg-[#1a1b1f] border-l border-white/5 flex flex-col">
+<div class="p-6 border-b border-white/5 bg-[#121317]">
+<h3 class="text-xs font-black text-outline uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">history</span>
+                        Project History
+                    </h3>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-3">
+<!-- History Item 1 -->
+<div class="p-4 bg-surface-container-high rounded-lg space-y-3 group hover:ring-1 ring-primary/30 transition-all cursor-pointer">
+<div class="flex justify-between items-start">
+<div>
+<div class="text-[10px] font-bold text-primary">#4091</div>
+<div class="text-xs font-semibold">Konstitucijos pr. 21</div>
+</div>
+<span class="text-[9px] font-mono text-outline">2m ago</span>
+</div>
+<div class="flex items-center gap-4">
+<div>
+<div class="text-[9px] text-outline uppercase">Value</div>
+<div class="text-sm font-bold">€345,000</div>
+</div>
+<div class="h-6 w-[1px] bg-white/10"></div>
+<div>
+<div class="text-[9px] text-outline uppercase">Yield</div>
+<div class="text-sm font-bold text-secondary">5.2%</div>
+</div>
+</div>
+</div>
+<!-- History Item 2 -->
+<div class="p-4 bg-surface-container-high rounded-lg space-y-3 opacity-60 hover:opacity-100 transition-all cursor-pointer">
+<div class="flex justify-between items-start">
+<div>
+<div class="text-[10px] font-bold text-primary">#4088</div>
+<div class="text-xs font-semibold">Jogailos g. 4</div>
+</div>
+<span class="text-[9px] font-mono text-outline">1h ago</span>
+</div>
+<div class="flex items-center gap-4">
+<div>
+<div class="text-[9px] text-outline uppercase">Value</div>
+<div class="text-sm font-bold">€1,280,000</div>
+</div>
+<div class="h-6 w-[1px] bg-white/10"></div>
+<div>
+<div class="text-[9px] text-outline uppercase">Yield</div>
+<div class="text-sm font-bold text-secondary">4.8%</div>
+</div>
+</div>
+</div>
+<!-- History Item 3 -->
+<div class="p-4 bg-surface-container-high rounded-lg space-y-3 opacity-40 hover:opacity-100 transition-all cursor-pointer">
+<div class="flex justify-between items-start">
+<div>
+<div class="text-[10px] font-bold text-primary">#4087</div>
+<div class="text-xs font-semibold">Vokiečių g. 12</div>
+</div>
+<span class="text-[9px] font-mono text-outline">4h ago</span>
+</div>
+<div class="flex items-center gap-4">
+<div>
+<div class="text-[9px] text-outline uppercase">Value</div>
+<div class="text-sm font-bold">€890,000</div>
+</div>
+<div class="h-6 w-[1px] bg-white/10"></div>
+<div>
+<div class="text-[9px] text-outline uppercase">Yield</div>
+<div class="text-sm font-bold text-secondary">6.1%</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side Map Preview -->
+<div class="p-4 space-y-2">
+<div class="h-32 w-full rounded-lg relative overflow-hidden">
+<img alt="Map View" class="w-full h-full object-cover grayscale brightness-50 contrast-125" data-alt="Satellite view of urban city grid map" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvuGRLmdDHIozJRe6WWRv8eGBHmzX1el2Q47PSsJxaySaKj-ic2OMGQYfRw54YczaGbwTXoF4aSFHHRjj3_aoAJkRB1P88hWYQ4jzT6hdAOF_-p2xIisA29h123qB61qgf3-p4SxQBEE_J7NdeQVBw7t1d6XnqJzWBI5HqRabgkknwbrLZeNS8LZl4ZV7ZwOUVqP9bGPQZksLtiWL1JjeMtIRkrxodHKqaoWR1Lg7gJEITqv1sxhUdVfppV2R-fYR2uZSiienV_mcA"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-4 h-4 bg-primary rounded-full animate-pulse ring-4 ring-primary/20"></div>
+</div>
+<div class="absolute bottom-2 left-2 px-2 py-1 bg-black/80 backdrop-blur-md rounded text-[9px] font-mono tracking-tighter">
+                            LAT: 54.687 | LON: 25.279
+                        </div>
+</div>
+<p class="text-[10px] text-outline italic text-center">Satellite feed locked to current address context</p>
+</div>
+</aside>
+</main>
+</div>
+<!-- Floating Command Bar -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-3 bg-surface-container-highest/70 backdrop-blur-xl border border-white/5 rounded-full shadow-2xl z-50">
+<button class="p-2 hover:bg-white/10 rounded-full transition-colors"><span class="material-symbols-outlined text-lg">search</span></button>
+<div class="h-4 w-[1px] bg-white/10 mx-1"></div>
+<button class="p-2 hover:bg-white/10 rounded-full transition-colors"><span class="material-symbols-outlined text-lg text-primary">add_circle</span></button>
+<button class="p-2 hover:bg-white/10 rounded-full transition-colors"><span class="material-symbols-outlined text-lg">folder_open</span></button>
+<button class="p-2 hover:bg-white/10 rounded-full transition-colors"><span class="material-symbols-outlined text-lg">ios_share</span></button>
+<div class="h-4 w-[1px] bg-white/10 mx-1"></div>
+<div class="px-2 text-[10px] font-mono font-bold text-outline">CMD + K</div>
+</div>
+</body></html>

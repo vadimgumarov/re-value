@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Archive | ESTIMATION_TERMINAL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed-dim": "#c9c3dc",
+              "inverse-on-surface": "#2f3034",
+              "primary": "#a0c9ff",
+              "surface-tint": "#a0c9ff",
+              "on-background": "#e3e2e7",
+              "inverse-primary": "#0061a6",
+              "surface-container": "#1e1f23",
+              "outline": "#8b919c",
+              "tertiary-container": "#928ea5",
+              "tertiary": "#c9c3dc",
+              "surface-container-high": "#292a2e",
+              "on-tertiary-fixed-variant": "#474458",
+              "surface-dim": "#121317",
+              "primary-fixed-dim": "#a0c9ff",
+              "primary-container": "#4894e3",
+              "primary-fixed": "#d2e4ff",
+              "error-container": "#93000a",
+              "surface-bright": "#38393d",
+              "on-tertiary-container": "#2a273a",
+              "surface-container-low": "#1a1b1f",
+              "on-secondary-fixed": "#002108",
+              "on-surface-variant": "#c1c7d3",
+              "on-error-container": "#ffdad6",
+              "background": "#121317",
+              "on-surface": "#e3e2e7",
+              "secondary-fixed-dim": "#6bde80",
+              "surface-variant": "#343439",
+              "outline-variant": "#414751",
+              "on-error": "#690005",
+              "on-primary-container": "#002b4e",
+              "surface-container-highest": "#343439",
+              "on-secondary": "#003913",
+              "secondary": "#6bde80",
+              "secondary-container": "#2fa54f",
+              "on-secondary-container": "#003210",
+              "on-tertiary": "#312e41",
+              "tertiary-fixed": "#e5dff9",
+              "on-primary-fixed": "#001c37",
+              "error": "#ffb4ab",
+              "surface": "#121317",
+              "surface-container-lowest": "#0d0e12",
+              "on-secondary-fixed-variant": "#00531f",
+              "secondary-fixed": "#88fb99",
+              "inverse-surface": "#e3e2e7",
+              "on-tertiary-fixed": "#1c192b",
+              "on-primary": "#00325a",
+              "on-primary-fixed-variant": "#00497f"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { background-color: #121317; color: #e3e2e7; }
+        /* Hide scrollbar but keep functionality */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #121317; }
+        ::-webkit-scrollbar-thumb { background: #414751; border-radius: 2px; }
+    </style>
+</head>
+<body class="font-['Inter'] antialiased">
+<!-- TopNavBar Implementation -->
+<header class="w-full h-16 sticky top-0 z-50 bg-[#121317] flex items-center justify-between px-6 w-full font-['Inter'] antialiased text-sm tracking-tight">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-slate-100 uppercase">ESTIMATION_TERMINAL</span>
+<nav class="hidden md:flex items-center space-x-6">
+<a class="text-slate-400 font-medium hover:text-slate-100 transition-colors duration-200 active:opacity-80 transition-all" href="#">Dashboard</a>
+<a class="text-slate-400 font-medium hover:text-slate-100 transition-colors duration-200 active:opacity-80 transition-all" href="#">Analytics</a>
+<a class="text-slate-400 font-medium hover:text-slate-100 transition-colors duration-200 active:opacity-80 transition-all" href="#">Reports</a>
+<a class="text-[#a0c9ff] border-b-2 border-[#a0c9ff] pb-1 font-semibold hover:text-slate-100 transition-colors duration-200 active:opacity-80 transition-all" href="#">Archive</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-slate-500 text-sm">search</span>
+<input class="bg-[#292a2e] text-xs px-10 py-2 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#a0c9ff] w-64 border-none text-on-surface" placeholder="QUERY_ARCHIVE..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<button class="text-slate-400 hover:text-[#a0c9ff] transition-all"><span class="material-symbols-outlined" data-icon="settings">settings</span></button>
+<button class="text-slate-400 hover:text-[#a0c9ff] transition-all"><span class="material-symbols-outlined" data-icon="notifications">notifications</span></button>
+<div class="h-8 w-8 rounded-full bg-[#292a2e] overflow-hidden">
+<img alt="User Analyst Profile" class="w-full h-full object-cover" data-alt="Close up of a professional data analyst profile portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ-rfnDcjiItyJ1Pvy0G9vBQEkdLlwubsM2McD3dfiM-qY0tG2CNJRxDaSLAQjszNkLzqq8huyV68FcucxG-6WCfsfEJJnDBcz3PP9ToY3b1HJPHs4KoqwmouugEPH37lzjnsYp4Ai98DeJcNEFmf-F_dAYTp-6kuaTn0REqGZGJPAbFt4C1462mP1qsF_AlsshPenDd0-_7ED6LDs6lmNH0MUgpRUidRPPur6ZP0irHUQsjAPYHH_3MlAqSWBzcd4_T2N3MBFJ_Ax"/>
+</div>
+</div>
+</div>
+</header>
+<!-- SideNavBar Implementation -->
+<aside class="h-screen w-64 fixed left-0 top-0 pt-20 bg-[#121317] border-r border-outline-variant/10 flex flex-col z-40">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 bg-[#292a2e] flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-[#a0c9ff]" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+<div>
+<div class="text-[10px] font-semibold tracking-widest uppercase text-slate-500">SOVEREIGN_INTEL</div>
+<div class="text-[9px] font-medium text-slate-600">V.2.4.0_STABLE</div>
+</div>
+</div>
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed py-2.5 rounded-lg text-[10px] font-bold tracking-widest uppercase flex items-center justify-center gap-2 hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm">add</span>
+                NEW_ESTIMATE
+            </button>
+</div>
+<div class="flex flex-col flex-1 px-4 space-y-1">
+<div class="text-[9px] font-bold text-slate-600 px-2 mb-2 tracking-[0.2em]">ENGINE_MODULES</div>
+<a class="flex items-center gap-3 px-3 py-3 text-slate-500 bg-transparent rounded-lg hover:bg-[#1a1b1f] hover:text-slate-200 transition-all font-['Inter'] text-[10px] font-semibold tracking-widest uppercase" href="#">
+<span class="material-symbols-outlined text-base">terminal</span>
+                Input Terminal
+            </a>
+<a class="flex items-center gap-3 px-3 py-3 text-slate-500 bg-transparent rounded-lg hover:bg-[#1a1b1f] hover:text-slate-200 transition-all font-['Inter'] text-[10px] font-semibold tracking-widest uppercase" href="#">
+<span class="material-symbols-outlined text-base">calculate</span>
+                Valuation Engine
+            </a>
+</div>
+<div class="mt-auto border-t border-outline-variant/10 p-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-slate-200 transition-all font-['Inter'] text-[10px] font-semibold tracking-widest uppercase" href="#">
+<span class="material-symbols-outlined text-base">menu_book</span>
+                Documentation
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-slate-200 transition-all font-['Inter'] text-[10px] font-semibold tracking-widest uppercase" href="#">
+<span class="material-symbols-outlined text-base">contact_support</span>
+                Support
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pl-64 pt-4 min-h-screen bg-background">
+<div class="max-w-[1600px] mx-auto p-8">
+<!-- Header & Filter Section -->
+<div class="flex flex-col gap-6 mb-12">
+<div class="flex justify-between items-end">
+<div>
+<div class="text-label-sm font-semibold tracking-[0.3em] text-primary uppercase mb-2">System Repository</div>
+<h1 class="text-4xl font-bold tracking-tight text-on-surface">ARCHIVE_01.LBR</h1>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex bg-surface-container-high p-1 rounded-lg">
+<button class="px-4 py-1.5 bg-surface-container-highest text-primary rounded shadow-sm">
+<span class="material-symbols-outlined text-sm">grid_view</span>
+</button>
+<button class="px-4 py-1.5 text-outline-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-sm">view_list</span>
+</button>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-high border-none text-on-surface text-xs font-semibold rounded-lg hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+                            ADVANCED_FILTERS
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-high border-none text-on-surface text-xs font-semibold rounded-lg hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-sm">download</span>
+                            EXPORT_CSV
+                        </button>
+</div>
+</div>
+<!-- Active Filters Bar -->
+<div class="flex items-center gap-4 bg-surface-container-low p-3 rounded-lg">
+<span class="text-[10px] font-bold text-slate-500 tracking-widest uppercase pl-2">ACTIVE_TAGS:</span>
+<div class="flex gap-2">
+<span class="bg-primary-container/20 text-primary px-3 py-1 rounded text-[10px] font-bold flex items-center gap-2">
+                            REGION: VILNIUS <span class="material-symbols-outlined text-[12px] cursor-pointer">close</span>
+</span>
+<span class="bg-tertiary-container/20 text-tertiary px-3 py-1 rounded text-[10px] font-bold flex items-center gap-2">
+                            YIELD &gt; 5% <span class="material-symbols-outlined text-[12px] cursor-pointer">close</span>
+</span>
+<span class="bg-surface-container-highest text-outline px-3 py-1 rounded text-[10px] font-bold flex items-center gap-2 cursor-pointer hover:text-on-surface">
+                            CLEAR_ALL
+                        </span>
+</div>
+</div>
+</div>
+<!-- Project Library Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Archive Card 01 -->
+<div class="bg-surface-container-low flex flex-col group overflow-hidden border-t-2 border-transparent hover:border-primary transition-all duration-300">
+<div class="relative h-48 bg-surface-container-high overflow-hidden">
+<img alt="Project Map Thumbnail" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" data-alt="Satellite map view of a residential development site in Vilnius" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeXToy7LqHrV4HG9wUiuK2rz35s3p-alOPbIRw0sZ_2-wBlnNsi61nKtZfiiMwTqsmQvFbEqdGyzHBgU_BwV1nEKtNNwwlQ5tHO7f_lQsicNjzW-cZL5s9AMCUdguFgxr8NASjsaJgbMEiFSh9Kq-tBVgNJ_QW5wGG2SX5VbonASbXyRlus2RMSGnx3oFM4rcx6S-6lcfgh0N24IOGJ-mS2wpJGhF1bucy7noPnAfyu21ZMsfxEkeH-WABd0VjKITNaGtazFAUJmaL"/>
+<div class="absolute top-4 left-4 bg-background/80 backdrop-blur px-2 py-1 text-[10px] font-bold text-primary border border-primary/20">
+                            ID: VIL-00452-X
+                        </div>
+<div class="absolute bottom-4 right-4 flex gap-2">
+<span class="bg-secondary-container text-on-secondary-container px-2 py-1 text-[9px] font-bold uppercase rounded">Stable</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-bold text-on-surface mb-1">Žirmūnų Loft Terrace</h3>
+<p class="text-xs text-outline-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">location_on</span>
+                                    Žirmūnų g. 68, Vilnius, Lithuania
+                                </p>
+</div>
+<div class="text-right">
+<div class="text-[10px] font-bold text-slate-500 tracking-tighter uppercase">Market Price</div>
+<div class="text-lg font-bold text-on-surface">€3,450/m²</div>
+</div>
+</div>
+<!-- Core Metrics -->
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-surface-container-high p-3 rounded">
+<div class="text-[9px] font-bold text-slate-500 uppercase mb-1">Project Yield</div>
+<div class="text-xl font-bold text-secondary">6.42%</div>
+</div>
+<div class="bg-surface-container-high p-3 rounded">
+<div class="text-[9px] font-bold text-slate-500 uppercase mb-1">ROI (3-YR)</div>
+<div class="text-xl font-bold text-primary">18.5%</div>
+</div>
+</div>
+<!-- History Log Mini -->
+<div class="space-y-3 mb-6">
+<div class="text-[10px] font-bold text-slate-600 tracking-[0.1em] border-b border-outline-variant/10 pb-1">HISTORY_LOG</div>
+<div class="flex items-center justify-between text-[10px]">
+<span class="text-outline-variant">Snapshot Recorded</span>
+<span class="text-on-surface-variant font-medium">12 OCT 2023</span>
+</div>
+<div class="flex items-center justify-between text-[10px]">
+<span class="text-outline-variant">Re-evaluated</span>
+<span class="text-on-surface-variant font-medium">04 JAN 2024</span>
+</div>
+</div>
+<button class="w-full py-2 bg-surface-container-highest text-on-surface text-[10px] font-bold tracking-widest uppercase hover:bg-primary hover:text-on-primary transition-all">
+                            OPEN_FULL_DOSSIER
+                        </button>
+</div>
+</div>
+<!-- Archive Card 02 -->
+<div class="bg-surface-container-low flex flex-col group overflow-hidden border-t-2 border-transparent hover:border-primary transition-all duration-300">
+<div class="relative h-48 bg-surface-container-high overflow-hidden">
+<img alt="Project Map Thumbnail" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" data-alt="Technical blueprint overlay on a dark satellite map" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqV1epeNu8O4UNvD0nKcwvx3-Wubf5SXzwbamx9zFe5LNDDnUn2h32lj9-mrlHjEcEDXFbS2Ut2IhASLOw2QA9cdYZUDPMh4O823FCD4Or0wkcyQmoXZTS3akOcuLQa6LJG_g4HRrg_zvAg2qlEY9lqKpQL5YqAcDBunEiyGhyUwVnp3LaobcMv9w-cBN2tjW6D9gh35pAydmfHYLwldzPatrAzLlQ-1z53b6VWALqqoRXFUXUO2lhmrkxgMrEQ_47qYpwCsINrgBh"/>
+<div class="absolute top-4 left-4 bg-background/80 backdrop-blur px-2 py-1 text-[10px] font-bold text-primary border border-primary/20">
+                            ID: KAU-00128-B
+                        </div>
+<div class="absolute bottom-4 right-4 flex gap-2">
+<span class="bg-error-container text-on-error-container px-2 py-1 text-[9px] font-bold uppercase rounded">Attention</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-bold text-on-surface mb-1">Nerimi Park Heights</h3>
+<p class="text-xs text-outline-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">location_on</span>
+                                    Kęstučio g. 14, Kaunas, Lithuania
+                                </p>
+</div>
+<div class="text-right">
+<div class="text-[10px] font-bold text-slate-500 tracking-tighter uppercase">Market Price</div>
+<div class="text-lg font-bold text-on-surface">€2,120/m²</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-surface-container-high p-3 rounded">
+<div class="text-[9px] font-bold text-slate-500 uppercase mb-1">Project Yield</div>
+<div class="text-xl font-bold text-error">3.88%</div>
+</div>
+<div class="bg-surface-container-high p-3 rounded">
+<div class="text-[9px] font-bold text-slate-500 uppercase mb-1">ROI (3-YR)</div>
+<div class="text-xl font-bold text-primary">9.2%</div>
+</div>
+</div>
+<div class="space-y-3 mb-6">
+<div class="text-[10px] font-bold text-slate-600 tracking-[0.1em] border-b border-outline-variant/10 pb-1">HISTORY_LOG</div>
+<div class="flex items-center justify-between text-[10px]">
+<span class="text-outline-variant">Initial Appraisal</span>
+<span class="text-on-surface-variant font-medium">15 NOV 2023</span>
+</div>
+<div class="flex items-center justify-between text-[10px]">
+<span class="text-outline-variant">Archive Created</span>
+<span class="text-on-surface-variant font-medium">15 NOV 2023</span>
+</div>
+</div>
+<button class="w-full py-2 bg-surface-container-highest text-on-surface text-[10px] font-bold tracking-widest uppercase hover:bg-primary hover:text-on-primary transition-all">
+                            OPEN_FULL_DOSSIER
+                        </button>
+</div>
+</div>
+<!-- Archive Card 03 -->
+<div class="bg-surface-container-low flex flex-col group overflow-hidden border-t-2 border-transparent hover:border-primary transition-all duration-300">
+<div class="relative h-48 bg-surface-container-high overflow-hidden">
+<img alt="Project Map Thumbnail" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" data-alt="Bird eye view of a harbor development area with data markers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgV4i4JL5W1WCHfKzxxAFurodFY4-9e3YyZhuXReIsRUaCRZcam1iGOVoUf65mW9hS7bcMoUy7Iux0HlLFbMlg6CthUkaM2cEH6Yv3DxOOxR3T_BydKLJB3F5VBOUVCSn6s_h0oqxkBpeuxXegFaxJkcRiOwsMonF8uGG5COp1vkTEiYR1BwhAMaGDEXhLqCNJie96V_tcvrYxHax4gdgwCPw7-W3MPzkiOEXXLPwY0oubg-VLlVIP-9lYmVPR7zvXOiPL1gKkHPt0"/>
+<div class="absolute top-4 left-4 bg-background/80 backdrop-blur px-2 py-1 text-[10px] font-bold text-primary border border-primary/20">
+                            ID: KLA-00089-V
+                        </div>
+<div class="absolute bottom-4 right-4 flex gap-2">
+<span class="bg-primary-container text-on-primary-container px-2 py-1 text-[9px] font-bold uppercase rounded">Growth</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-bold text-on-surface mb-1">Memel Quarter Hub</h3>
+<p class="text-xs text-outline-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">location_on</span>
+                                    Danės g. 1, Klaipėda, Lithuania
+                                </p>
+</div>
+<div class="text-right">
+<div class="text-[10px] font-bold text-slate-500 tracking-tighter uppercase">Market Price</div>
+<div class="text-lg font-bold text-on-surface">€2,980/m²</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-surface-container-high p-3 rounded">
+<div class="text-[9px] font-bold text-slate-500 uppercase mb-1">Project Yield</div>
+<div class="text-xl font-bold text-secondary">5.95%</div>
+</div>
+<div class="bg-surface-container-high p-3 rounded">
+<div class="text-[9px] font-bold text-slate-500 uppercase mb-1">ROI (3-YR)</div>
+<div class="text-xl font-bold text-primary">22.1%</div>
+</div>
+</div>
+<div class="space-y-3 mb-6">
+<div class="text-[10px] font-bold text-slate-600 tracking-[0.1em] border-b border-outline-variant/10 pb-1">HISTORY_LOG</div>
+<div class="flex items-center justify-between text-[10px]">
+<span class="text-outline-variant">Market Shift Adapt</span>
+<span class="text-on-surface-variant font-medium">02 FEB 2024</span>
+</div>
+<div class="flex items-center justify-between text-[10px]">
+<span class="text-outline-variant">Latest Update</span>
+<span class="text-on-surface-variant font-medium">10 FEB 2024</span>
+</div>
+</div>
+<button class="w-full py-2 bg-surface-container-highest text-on-surface text-[10px] font-bold tracking-widest uppercase hover:bg-primary hover:text-on-primary transition-all">
+                            OPEN_FULL_DOSSIER
+                        </button>
+</div>
+</div>
+</div>
+<!-- Pagination/Footer Actions -->
+<div class="mt-12 flex justify-between items-center py-6 border-t border-outline-variant/10">
+<div class="text-[10px] font-medium text-slate-500 tracking-wider">
+                    DISPLAYING 12 OF 284 ARCHIVED PROJECTS
+                </div>
+<div class="flex gap-2">
+<button class="w-8 h-8 bg-surface-container-high flex items-center justify-center rounded hover:bg-surface-variant text-outline hover:text-on-surface transition-all">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 bg-primary text-on-primary flex items-center justify-center rounded font-bold text-xs">1</button>
+<button class="w-8 h-8 bg-surface-container-high flex items-center justify-center rounded hover:bg-surface-variant text-on-surface-variant font-bold text-xs">2</button>
+<button class="w-8 h-8 bg-surface-container-high flex items-center justify-center rounded hover:bg-surface-variant text-on-surface-variant font-bold text-xs">3</button>
+<span class="px-2 text-slate-600 self-center">...</span>
+<button class="w-8 h-8 bg-surface-container-high flex items-center justify-center rounded hover:bg-surface-variant text-on-surface-variant font-bold text-xs">24</button>
+<button class="w-8 h-8 bg-surface-container-high flex items-center justify-center rounded hover:bg-surface-variant text-outline hover:text-on-surface transition-all">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Command Bar (Glassmorphism) -->
+<div class="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50">
+<div class="bg-surface-container-highest/70 backdrop-blur-xl px-6 py-3 rounded-xl border border-outline-variant/20 flex items-center gap-6 shadow-2xl">
+<button class="flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined text-lg text-primary group-hover:scale-110 transition-transform">search</span>
+<span class="text-[8px] font-bold tracking-tighter text-slate-400">SEARCH</span>
+</button>
+<div class="w-px h-8 bg-outline-variant/20"></div>
+<button class="flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined text-lg text-slate-400 group-hover:text-on-surface transition-colors">compare_arrows</span>
+<span class="text-[8px] font-bold tracking-tighter text-slate-400">COMPARE</span>
+</button>
+<button class="flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined text-lg text-slate-400 group-hover:text-on-surface transition-colors" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+<span class="text-[8px] font-bold tracking-tighter text-slate-400">FAVORITES</span>
+</button>
+<button class="flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined text-lg text-slate-400 group-hover:text-on-surface transition-colors">tune</span>
+<span class="text-[8px] font-bold tracking-tighter text-slate-400">TOOLS</span>
+</button>
+</div>
+</div>
+</body></html>
